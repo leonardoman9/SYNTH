@@ -54,6 +54,14 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 private:
+    juce::dsp::Oscillator<float> osc{ [](float x) {return x < 0.0f ? -1.0f : 1.0f; ;  }};
+    juce::dsp::Gain<float> gain;
+    /*
+    * return std::sin(x);                           SINE WAVE
+    return x / MathConstants<float>::pi;            SAW WAVE
+    return x < 0.0f ? -1.0f : 1.0f;                 SQUARE WAVE
+    */
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SYNTHAudioProcessor)
 };
