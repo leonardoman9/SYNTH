@@ -9,16 +9,18 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "SynthVoice.h"
+#include "SynthSound.h"
 
 //==============================================================================
 /**
 */
-class LeoSynthAudioProcessor  : public juce::AudioProcessor
+class TapSynthAudioProcessor  : public juce::AudioProcessor
 {
 public:
     //==============================================================================
-    LeoSynthAudioProcessor();
-    ~LeoSynthAudioProcessor() override;
+    TapSynthAudioProcessor();
+    ~TapSynthAudioProcessor() override;
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -55,6 +57,7 @@ public:
 
 private:
     juce::Synthesiser synth;
+    
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LeoSynthAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TapSynthAudioProcessor)
 };
