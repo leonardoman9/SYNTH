@@ -103,8 +103,6 @@ void SYNTHAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 
     osc.setFrequency(220.0f);
     gain.setGainLinear(0.01f);
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
 }
 
 void SYNTHAudioProcessor::releaseResources()
