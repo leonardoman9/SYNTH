@@ -25,11 +25,12 @@ public:
     void resized() override;
 
 private:
+    void setSliderParams(juce::Slider& slider);
+
     juce::Slider attackSlider;
     juce::Slider decaySlider;
     juce::Slider sustainSlider;
     juce::Slider releaseSlider;
-
     juce::ComboBox oscSelector;
 
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
