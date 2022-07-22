@@ -144,8 +144,6 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
 
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
-
-    
     for (int i = 0; i < synth.getNumVoices(); ++i)
     {
         if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))
@@ -158,10 +156,13 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& decay = *apvts.getRawParameterValue("DECAY");
             auto& sustain = *apvts.getRawParameterValue("SUSTAIN");
             auto& release = *apvts.getRawParameterValue("RELEASE");
+            auto& oscWaveChoice = *apvts.getRawParameterValue("OSC1WAVETYPE");
+            
             voice->update (attack.load(),
                            decay.load(),
                            sustain.load(),
                            release.load()); //sono variabili atomic, non semplice float
+            voice->getOscillator().setWaveType(oscWaveChoice);
         }
     }
     
@@ -217,6 +218,13 @@ juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::crea
     params.push_back(std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> {0.1f, 1.0f, }, 0.1f));
     params.push_back(std::make_unique<juce::AudioParameterFloat>("SUSTAIN", "Sustain", juce::NormalisableRange<float> {0.1f, 1.0f, }, 1.0f));
     params.push_back(std::make_unique<juce::AudioParameterFloat>("RELEASE", "Release", juce::NormalisableRange<float> {0.1f, 3.0f, }, 0.4f));
+    
+    //Select Wave Type
+    params.push_back(std::make_unique<juce::AudioParameterChoice>("OSC1WAVETYPE",
+                                                                 "Osc 1 Wave",
+                                                                 juce::StringArray{"Sine", "Saw", "Square"},
+                                                                 0));
+                                                                 
 
     return { params.begin(), params.end() };
 

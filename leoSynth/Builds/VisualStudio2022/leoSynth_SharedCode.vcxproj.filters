@@ -619,7 +619,13 @@
     <ClCompile Include="..\..\Source\Data\AdsrData.cpp">
       <Filter>leoSynth\Source\Data</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Data\OscData.cpp">
+      <Filter>leoSynth\Source\Data</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UI\AdsrComponent.cpp">
+      <Filter>leoSynth\Source\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\OscComponent.cpp">
       <Filter>leoSynth\Source\UI</Filter>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -3054,7 +3060,13 @@
     <ClInclude Include="..\..\Source\Data\AdsrData.h">
       <Filter>leoSynth\Source\Data</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Data\OscData.h">
+      <Filter>leoSynth\Source\Data</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UI\AdsrComponent.h">
+      <Filter>leoSynth\Source\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\OscComponent.h">
       <Filter>leoSynth\Source\UI</Filter>
     </ClInclude>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
