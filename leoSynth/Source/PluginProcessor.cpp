@@ -220,8 +220,8 @@ juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::crea
 
     
     //FM
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("FMFR", "FM Frequency", juce::NormalisableRange<float> {0.0f, 1000.0f, }, 5.0f));
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("FMD", "FM Depth", juce::NormalisableRange<float> {0.0f, 1000.0f, }, 500.0f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("FMFREQ", "FM Frequency", juce::NormalisableRange<float> {0.0f, 1000.0f, }, 5.0f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("FMDEPTH", "FM Depth", juce::NormalisableRange<float> {0.0f, 1000.0f, }, 5.0f));
     
     // ADSR
     params.push_back(std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> {0.1f, 1.0f, }, 0.1f));

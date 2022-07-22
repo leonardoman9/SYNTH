@@ -39,6 +39,12 @@ void OscData::setWaveType(const int choice)
 }
 
 
+void OscData::setWaveFrequency(const int midiNoteNumber)
+{
+    setFrequency (juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber) + fmMod);
+    lastMidiNote = midiNoteNumber;
+}
+
 void OscData::getNextAudioBlock(juce::dsp::AudioBlock<float>& block)
 {
     for (int ch = 0; ch<block.getNumChannels(); ++ch)
@@ -50,12 +56,6 @@ void OscData::getNextAudioBlock(juce::dsp::AudioBlock<float>& block)
     }
     process(juce::dsp::ProcessContextReplacing<float>(block));
 
-}
-
-void OscData::setWaveFrequency(const int midiNoteNumber)
-{
-    setFrequency (juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber) + fmMod);
-    lastMidiNote = midiNoteNumber;
 }
 
 void OscData::setFmParams(const float depth, const float freq)
