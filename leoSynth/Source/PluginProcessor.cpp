@@ -157,12 +157,17 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& sustain = *apvts.getRawParameterValue("SUSTAIN");
             auto& release = *apvts.getRawParameterValue("RELEASE");
             auto& oscWaveChoice = *apvts.getRawParameterValue("OSC1WAVETYPE");
+            auto& fmDepth = *apvts.getRawParameterValue("FMDEPTH");
+            auto& fmFreq = *apvts.getRawParameterValue("FMFREQ");
+
             
+            voice->getOscillator().setWaveType(oscWaveChoice);
+            voice->getOscillator().setFmParams(fmDepth, fmFreq);
             voice->update (attack.load(),
                            decay.load(),
                            sustain.load(),
                            release.load()); //sono variabili atomic, non semplice float
-            voice->getOscillator().setWaveType(oscWaveChoice);
+           
         }
     }
     
@@ -213,6 +218,11 @@ juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::crea
         juce::StringArray{ "Sine", "Saw", "Square" },
         0));
 
+    
+    //FM
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("FMFR", "FM Frequency", juce::NormalisableRange<float> {0.0f, 1000.0f, }, 5.0f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("FMD", "FM Depth", juce::NormalisableRange<float> {0.0f, 1000.0f, }, 500.0f));
+    
     // ADSR
     params.push_back(std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> {0.1f, 1.0f, }, 0.1f));
     params.push_back(std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> {0.1f, 1.0f, }, 0.1f));
