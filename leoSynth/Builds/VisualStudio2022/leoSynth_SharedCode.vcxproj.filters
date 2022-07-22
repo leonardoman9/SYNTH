@@ -2,6 +2,12 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="leoSynth\Source\Data">
+      <UniqueIdentifier>{20E813CA-26CB-5FFE-DB6D-EC4BF9A029DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="leoSynth\Source\UI">
+      <UniqueIdentifier>{9C482F12-D1EE-5580-98A4-1ECF46BD8AE0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="leoSynth\Source">
       <UniqueIdentifier>{05B3E06D-1738-6439-DCA8-FC13236791AA}</UniqueIdentifier>
     </Filter>
@@ -609,6 +615,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\SynthVoice.cpp">
       <Filter>leoSynth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Data\AdsrData.cpp">
+      <Filter>leoSynth\Source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\AdsrComponent.cpp">
+      <Filter>leoSynth\Source\UI</Filter>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -3038,6 +3050,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\SynthSound.h">
       <Filter>leoSynth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Data\AdsrData.h">
+      <Filter>leoSynth\Source\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\AdsrComponent.h">
+      <Filter>leoSynth\Source\UI</Filter>
     </ClInclude>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

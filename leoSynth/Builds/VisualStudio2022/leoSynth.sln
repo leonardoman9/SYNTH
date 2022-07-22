@@ -7,11 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "leoSynth - Standalone Plugi
 		{E0D93EA7-0B83-1A47-D738-7D94570A4A74} = {E0D93EA7-0B83-1A47-D738-7D94570A4A74}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "leoSynth - VST", "leoSynth_VST.vcxproj", "{608C9732-C666-00FD-E3E0-09105537ACCE}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E0D93EA7-0B83-1A47-D738-7D94570A4A74} = {E0D93EA7-0B83-1A47-D738-7D94570A4A74}
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "leoSynth - VST3", "leoSynth_VST3.vcxproj", "{959D49FD-69CF-A5DA-ACFE-89630658C3DB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E0D93EA7-0B83-1A47-D738-7D94570A4A74} = {E0D93EA7-0B83-1A47-D738-7D94570A4A74}
@@ -25,10 +20,6 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{608C9732-C666-00FD-E3E0-09105537ACCE}.Debug|x64.ActiveCfg = Debug|x64
-		{608C9732-C666-00FD-E3E0-09105537ACCE}.Debug|x64.Build.0 = Debug|x64
-		{608C9732-C666-00FD-E3E0-09105537ACCE}.Release|x64.ActiveCfg = Release|x64
-		{608C9732-C666-00FD-E3E0-09105537ACCE}.Release|x64.Build.0 = Release|x64
 		{959D49FD-69CF-A5DA-ACFE-89630658C3DB}.Debug|x64.ActiveCfg = Debug|x64
 		{959D49FD-69CF-A5DA-ACFE-89630658C3DB}.Debug|x64.Build.0 = Debug|x64
 		{959D49FD-69CF-A5DA-ACFE-89630658C3DB}.Release|x64.ActiveCfg = Release|x64

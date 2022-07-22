@@ -158,7 +158,10 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& decay = *apvts.getRawParameterValue("DECAY");
             auto& sustain = *apvts.getRawParameterValue("SUSTAIN");
             auto& release = *apvts.getRawParameterValue("RELEASE");
-            voice->updateADSR(attack.load(), decay.load(), sustain.load(), release.load()); //atomic, non semplice float
+            voice->update (attack.load(),
+                           decay.load(),
+                           sustain.load(),
+                           release.load()); //sono variabili atomic, non semplice float
         }
     }
     
