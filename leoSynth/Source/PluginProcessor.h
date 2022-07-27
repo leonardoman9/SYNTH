@@ -15,12 +15,12 @@
 //==============================================================================
 /**
 */
-class leoSynthAudioProcessor  : public juce::AudioProcessor
+class   leoSynthAudioProcessor  : public juce::AudioProcessor
 {
 public:
     //==============================================================================
-    leoSynthAudioProcessor();
-    ~leoSynthAudioProcessor() override;
+    leoSynthAudioProcessor();                   //Costruttore
+    ~leoSynthAudioProcessor() override;         //Distruttore
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
