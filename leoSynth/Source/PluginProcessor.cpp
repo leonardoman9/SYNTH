@@ -19,7 +19,7 @@ leoSynthAudioProcessor::leoSynthAudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       ), apvts(*this, nullptr, "Parameters", createParams())
+                       ), apvts (*this, nullptr, "Parameters", createParams())
 #endif
 {
     synth.addSound (new SynthSound());
@@ -97,11 +97,12 @@ void leoSynthAudioProcessor::changeProgramName (int index, const juce::String& n
 void leoSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     synth.setCurrentPlaybackSampleRate (sampleRate);
-    for (int i = 0; i < synth.getNumVoices(); i++) 
+    
+    for (int i = 0; i < synth.getNumVoices(); i++)
     {
-        if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i))) 
+        if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))
         {
-            voice->prepareToPlay(sampleRate, samplesPerBlock, getTotalNumOutputChannels());
+            voice->prepareToPlay (sampleRate, samplesPerBlock, getTotalNumOutputChannels());
         }
     }
 }
@@ -144,34 +145,27 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
 
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
+
     for (int i = 0; i < synth.getNumVoices(); ++i)
     {
         if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))
         {
-            // Osc controls
-            // ADSR
-            // LFO
-
-            auto& attack = *apvts.getRawParameterValue("ATTACK");
-            auto& decay = *apvts.getRawParameterValue("DECAY");
-            auto& sustain = *apvts.getRawParameterValue("SUSTAIN");
-            auto& release = *apvts.getRawParameterValue("RELEASE");
-            auto& oscWaveChoice = *apvts.getRawParameterValue("OSC1WAVETYPE");
-            auto& fmDepth = *apvts.getRawParameterValue("OSC1FMDEPTH");
-            auto& fmFreq = *apvts.getRawParameterValue("OSC1FMFREQ");
-
+            auto& oscWaveChoice = *apvts.getRawParameterValue ("OSC1WAVETYPE");
             
-            voice->getOscillator().setWaveType(oscWaveChoice);
-            voice->getOscillator().setFmParams(fmDepth, fmFreq);
-            voice->update (attack.load(),
-                           decay.load(),
-                           sustain.load(),
-                           release.load()); //sono variabili atomic, non semplice float
-           
+            auto& fmFreq = *apvts.getRawParameterValue ("OSC1FMFREQ");
+            auto& fmDepth = *apvts.getRawParameterValue ("OSC1FMDEPTH");
+            
+            auto& attack = *apvts.getRawParameterValue ("ATTACK");
+            auto& decay = *apvts.getRawParameterValue ("DECAY");
+            auto& sustain = *apvts.getRawParameterValue ("SUSTAIN");
+            auto& release = *apvts.getRawParameterValue ("RELEASE");
+            
+            voice->getOscillator().setWaveType (oscWaveChoice);
+            voice->getOscillator().updateFm (fmFreq, fmDepth);
+            voice->update (attack.load(), decay.load(), sustain.load(), release.load());
         }
     }
     
-   
     synth.renderNextBlock (buffer, midiMessages, 0, buffer.getNumSamples());
 }
 
@@ -207,36 +201,22 @@ juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
     return new leoSynthAudioProcessor();
 }
 
-
 juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::createParams()
 {
-    // Combobox: switch oscillators
     std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
-    params.push_back(std::make_unique<juce::AudioParameterChoice>(
-        "OSC",
-        "Oscillator",
-        juce::StringArray{ "Sine", "Saw", "Square" },
-        0));
-
-    //Select Wave Type
-    params.push_back(std::make_unique<juce::AudioParameterChoice>("OSC1WAVETYPE",
-        "Osc 1 Wave",
-        juce::StringArray{ "Sine", "Saw", "Square" },
-        0));
     
-    //FM
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1FMFREQ", "FM Frequency", juce::NormalisableRange<float> {0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1FMDEPTH", "FM Depth", juce::NormalisableRange<float> {0.0f, 1000.0f, 0.01f, 0.3f}, 0.0f));
+    // OSC select
+    params.push_back (std::make_unique<juce::AudioParameterChoice>("OSC1WAVETYPE", "Osc 1 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
+    
+    // FM
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC1FMFREQ", "Osc 1 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC1FMDEPTH", "Osc 1 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
     
     // ADSR
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> {0.1f, 1.0f, }, 0.1f));
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> {0.1f, 1.0f, }, 0.1f));
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("SUSTAIN", "Sustain", juce::NormalisableRange<float> {0.1f, 1.0f, }, 1.0f));
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("RELEASE", "Release", juce::NormalisableRange<float> {0.1f, 3.0f, }, 0.4f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> { 0.1f, 1.0f, }, 0.1f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> { 0.1f, 1.0f, }, 0.1f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUSTAIN", "Sustain", juce::NormalisableRange<float> { 0.1f, 1.0f, }, 1.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("RELEASE", "Release", juce::NormalisableRange<float> { 0.1f, 3.0f, }, 0.4f));
     
-   
-                                                                 
-
     return { params.begin(), params.end() };
-
 }

@@ -2,7 +2,7 @@
   ==============================================================================
 
     OscData.cpp
-    Created: 22 Jul 2022 5:31:14pm
+    Created: 21 Feb 2021 4:34:01pm
     Author:  Leonardo Mannini
 
   ==============================================================================
@@ -10,59 +10,64 @@
 
 #include "OscData.h"
 
-void OscData::prepareToPlay(juce::dsp::ProcessSpec& spec)
+void OscData::prepareToPlay (juce::dsp::ProcessSpec& spec)
 {
-    fmOsc.prepare(spec);
     prepare (spec);
+    fmOsc.prepare (spec);
 }
-void OscData::setWaveType(const int choice)
-{
-    switch(choice){
-        case 0:
-            //SINE WAVE
-            initialise([](float x) {return std::sin(x); } );
-            break;
-        case 1:
-            //SAW WAVE
-            initialise([](float x) { return x / juce::MathConstants<float>::pi; } );
 
+void OscData::setWaveType (const int choice)
+{
+    switch (choice)
+    {
+        case 0:
+            // Sine
+            initialise ([](float x) { return std::sin (x); });
             break;
+            
+        case 1:
+            // Saw wave
+            initialise ([](float x) { return x / juce::MathConstants<float>::pi; });
+            break;
+            
         case 2:
-            //SQUARE WAVE
-            initialise([](float x) { return x < 0.0f ? -1.0f : 1.0f; } );
+            // Square wave
+            initialise ([](float x) { return x < 0.0f ? -1.0f : 1.0f; });
             break;
             
         default:
-            jassertfalse; //Qualcosa è andato storto
+            jassertfalse;   // You're not supposed to be here!
             break;
     }
 }
 
-
-void OscData::setWaveFrequency(const int midiNoteNumber)
+void OscData::setWaveFrequency (const int midiNoteNumber)
 {
-    setFrequency (juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber) + fmMod);
+    setFrequency (juce::MidiMessage::getMidiNoteInHertz (midiNoteNumber) + fmMod);
     lastMidiNote = midiNoteNumber;
 }
 
-void OscData::getNextAudioBlock(juce::dsp::AudioBlock<float>& block)
+void OscData::getNextAudioBlock (juce::dsp::AudioBlock<float>& block)
 {
-    for (int ch = 0; ch<block.getNumChannels(); ++ch)
-    {
-        for (int s = 0; s< block.getNumSamples(); ++s)
-        {
-            fmMod = fmOsc.processSample(block.getSample(ch, s)) * fmDepth; //value of a wave at a given point in time, multiplied * fm Depth
-        }
-    }
-    process(juce::dsp::ProcessContextReplacing<float>(block));
-
+    processFmOsc (block);
+    process (juce::dsp::ProcessContextReplacing<float> (block));
 }
 
-void OscData::setFmParams(const float depth, const float freq)
+void OscData::processFmOsc (juce::dsp::AudioBlock<float>& block)
 {
-    fmOsc.setFrequency(freq);
+    for (int ch = 0; ch < block.getNumChannels(); ++ch)
+    {
+        for (int s = 0; s < block.getNumSamples(); ++s)
+        {
+            fmMod = fmOsc.processSample (block.getSample (ch, s)) * fmDepth;
+        }
+    }
+}
+
+void OscData::updateFm (const float freq, const float depth)
+{
+    fmOsc.setFrequency (freq);
     fmDepth = depth;
-    auto currentFreq =juce::MidiMessage::getMidiNoteInHertz(lastMidiNote)+ fmMod;
-    //setFrequency (abs(currentFreq)); potrebbe funzionare?
-    setFrequency(currentFreq >= 0 ? currentFreq : currentFreq * -1.0f);
+    auto currentFreq = juce::MidiMessage::getMidiNoteInHertz (lastMidiNote) + fmMod;
+    setFrequency (currentFreq >= 0 ? currentFreq : currentFreq * -1.0f);
 }

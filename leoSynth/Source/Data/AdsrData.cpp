@@ -2,20 +2,20 @@
   ==============================================================================
 
     AdsrData.cpp
-    Created: 22 Jul 2022 4:11:42pm
+    Created: 7 Feb 2021 2:29:21pm
     Author:  Leonardo Mannini
 
   ==============================================================================
 */
 
 #include "AdsrData.h"
-void AdsrData::updateADSR(const float attack, const float decay, const float sustain, const float release)
+
+void AdsrData::updateADSR (const float attack, const float decay, const float sustain, const float release)
 {
     adsrParams.attack = attack;
     adsrParams.decay = decay;
     adsrParams.sustain = sustain;
-    adsrParams.decay = release;
-
-    setParameters(adsrParams);
-
+    adsrParams.release = release;
+    
+    setParameters (adsrParams);
 }

@@ -15,12 +15,12 @@
 //==============================================================================
 /**
 */
-class   leoSynthAudioProcessor  : public juce::AudioProcessor
+class leoSynthAudioProcessor  : public juce::AudioProcessor
 {
 public:
     //==============================================================================
-    leoSynthAudioProcessor();                   //Costruttore
-    ~leoSynthAudioProcessor() override;         //Distruttore
+    leoSynthAudioProcessor();
+    ~leoSynthAudioProcessor() override;
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -54,13 +54,13 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
-
-
+    
     juce::AudioProcessorValueTreeState apvts;
+
 private:
-    juce::dsp::Oscillator<float> osc { [](float x) {return std::sin(x); } };
     juce::Synthesiser synth;
     juce::AudioProcessorValueTreeState::ParameterLayout createParams();
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (leoSynthAudioProcessor)
 };

@@ -2,7 +2,7 @@
   ==============================================================================
 
     SynthVoice.h
-    Created: 20 May 2022 1:56:00pm
+    Created: 10 Dec 2020 1:55:41pm
     Author:  Leonardo Mannini
 
   ==============================================================================
@@ -23,19 +23,22 @@ public:
     void stopNote (float velocity, bool allowTailOff) override;
     void controllerMoved (int controllerNumber, int newControllerValue) override;
     void pitchWheelMoved (int newPitchWheelValue) override;
-    void prepareToPlay(double sampleRate, int samplesPerBlock, int outputChannels);
+    void prepareToPlay (double sampleRate, int samplesPerBlock, int outputChannels);
     void renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int startSample, int numSamples) override;
-    void update(const float attack, const float decay, const float sustain, const float release);
-    OscData& getOscillator() {return osc;};
-  
+    
+    void update (const float attack, const float decay, const float sustain, const float release);
+    OscData& getOscillator() { return osc; }
+    
 private:
     AdsrData adsr;
     juce::AudioBuffer<float> synthBuffer;
-
-    OscData osc;
-    //juce::dsp::Oscillator<float> osc{ [](float x) {return x / juce::MathConstants<float>::pi;  } };
-    juce::dsp::Gain<float> gain;
-    bool isPrepared{ false };
-
     
+    OscData osc;
+    //juce::dsp::Oscillator<float> osc { [](float x) { return x / juce::MathConstants<float>::pi; }};
+    juce::dsp::Gain<float> gain;
+    bool isPrepared { false };
+    
+    // return std::sin (x); //Sine Wave
+    // return x / MathConstants<float>::pi; // Saw Wave
+    // return x < 0.0f ? -1.0f : 1.0f;  // Square Wave
 };
