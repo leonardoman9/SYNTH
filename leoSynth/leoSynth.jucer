@@ -18,6 +18,8 @@
       <GROUP id="{F763CC91-BD2D-7AF9-546F-8878966BB954}" name="Data">
         <FILE id="LoPzV0" name="AdsrData.cpp" compile="1" resource="0" file="Source/Data/AdsrData.cpp"/>
         <FILE id="jhGYSk" name="AdsrData.h" compile="0" resource="0" file="Source/Data/AdsrData.h"/>
+        <FILE id="SGqAga" name="FilterData.cpp" compile="1" resource="0" file="Source/Data/FilterData.cpp"/>
+        <FILE id="uMri6b" name="FilterData.h" compile="0" resource="0" file="Source/Data/FilterData.h"/>
         <FILE id="mEn0hO" name="OscData.cpp" compile="1" resource="0" file="Source/Data/OscData.cpp"/>
         <FILE id="RAnI70" name="OscData.h" compile="0" resource="0" file="Source/Data/OscData.h"/>
       </GROUP>
@@ -25,6 +27,14 @@
         <FILE id="Gh5xhC" name="AdsrComponent.cpp" compile="1" resource="0"
               file="Source/UI/AdsrComponent.cpp"/>
         <FILE id="xSj7wT" name="AdsrComponent.h" compile="0" resource="0" file="Source/UI/AdsrComponent.h"/>
+        <FILE id="zCrHxO" name="CreditsComponent.cpp" compile="1" resource="0"
+              file="Source/UI/CreditsComponent.cpp"/>
+        <FILE id="AjzAin" name="CreditsComponent.h" compile="0" resource="0"
+              file="Source/UI/CreditsComponent.h"/>
+        <FILE id="lv7180" name="FilterComponent.cpp" compile="1" resource="0"
+              file="Source/UI/FilterComponent.cpp"/>
+        <FILE id="A2GA3f" name="FilterComponent.h" compile="0" resource="0"
+              file="Source/UI/FilterComponent.h"/>
         <FILE id="D3P1YA" name="OscComponent.cpp" compile="1" resource="0"
               file="Source/UI/OscComponent.cpp"/>
         <FILE id="udQwcP" name="OscComponent.h" compile="0" resource="0" file="Source/UI/OscComponent.h"/>
