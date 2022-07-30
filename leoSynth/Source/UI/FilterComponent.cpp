@@ -2,7 +2,6 @@
   ==============================================================================
 
     FilterComponent.cpp
-    Created: 29 Jul 2022 9:39:58pm
     Author:  Leonardo Mannini
 
   ==============================================================================
@@ -23,7 +22,7 @@ FilterComponent::FilterComponent(juce::AudioProcessorValueTreeState& apvts, juce
     filterTypeSelectorLabel.setColour (juce::Label::ColourIds::textColourId, juce::Colours::white);
     filterTypeSelectorLabel.setFont (15.0f);
     filterTypeSelectorLabel.setJustificationType (juce::Justification::left);
-     addAndMakeVisible (filterTypeSelectorLabel);
+    addAndMakeVisible (filterTypeSelectorLabel);
     setSliderWithLabel(filterFreqSlider, filterFreqLabel, apvts, filterFreqId, filterFreqAttachment);
     setSliderWithLabel(filterResSlider, filterResLabel, apvts, filterResId, filterResAttachment);
 }
@@ -36,7 +35,6 @@ void FilterComponent::paint (juce::Graphics& g)
 {
          auto bounds = getLocalBounds().reduced (5);
          auto labelSpace = bounds.removeFromTop (25.0f);
-
          g.fillAll (juce::Colours::black);
          g.setColour (juce::Colours::white);
          g.setFont (20.0f);

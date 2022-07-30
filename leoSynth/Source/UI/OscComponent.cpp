@@ -2,7 +2,6 @@
   ==============================================================================
 
     OscComponent.cpp
-    Created: 21 Feb 2021 4:55:21pm
     Author:  Leonardo Mannini
 
   ==============================================================================
@@ -38,7 +37,6 @@ void OscComponent::paint (juce::Graphics& g)
 {
     auto bounds = getLocalBounds().reduced (5);
          auto labelSpace = bounds.removeFromTop (25.0f);
-
          g.fillAll (juce::Colours::black);
          g.setColour (juce::Colours::white);
          g.setFont (20.0f);
