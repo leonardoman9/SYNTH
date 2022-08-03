@@ -27,10 +27,6 @@
         <FILE id="Gh5xhC" name="AdsrComponent.cpp" compile="1" resource="0"
               file="Source/UI/AdsrComponent.cpp"/>
         <FILE id="xSj7wT" name="AdsrComponent.h" compile="0" resource="0" file="Source/UI/AdsrComponent.h"/>
-        <FILE id="zCrHxO" name="CreditsComponent.cpp" compile="1" resource="0"
-              file="Source/UI/CreditsComponent.cpp"/>
-        <FILE id="AjzAin" name="CreditsComponent.h" compile="0" resource="0"
-              file="Source/UI/CreditsComponent.h"/>
         <FILE id="lv7180" name="FilterComponent.cpp" compile="1" resource="0"
               file="Source/UI/FilterComponent.cpp"/>
         <FILE id="A2GA3f" name="FilterComponent.h" compile="0" resource="0"

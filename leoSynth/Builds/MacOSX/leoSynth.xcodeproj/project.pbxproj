@@ -855,7 +855,7 @@
 					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.leoSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_8DE908C1=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
 				);
@@ -975,7 +975,7 @@
 					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.leoSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_8DE908C1=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
 				);
@@ -1089,7 +1089,7 @@
 					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.leoSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_8DE908C1=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
 					"JUCE_SHARED_CODE=1",
@@ -1203,7 +1203,7 @@
 					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.leoSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_8DE908C1=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
 				);
@@ -1366,7 +1366,7 @@
 					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.leoSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_8DE908C1=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
 				);
@@ -1479,7 +1479,7 @@
 					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.leoSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_8DE908C1=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
 				);
@@ -1595,7 +1595,7 @@
 					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.leoSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_8DE908C1=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
 					"JUCE_SHARED_CODE=1",
@@ -1708,7 +1708,7 @@
 					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.leoSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_8DE908C1=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
 				);

@@ -17,6 +17,7 @@
 class OscComponent  : public juce::Component
 {
 public:
+    
     OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::String waveSelectorId, juce::String fmFreqId, juce::String fmDepthId);
     ~OscComponent() override;
 
