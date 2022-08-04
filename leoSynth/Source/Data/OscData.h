@@ -22,7 +22,7 @@ public:
     
 private:
     void processFmOsc (juce::dsp::AudioBlock<float>& block);
-    
+    juce::Random random;
     juce::dsp::Oscillator<float> fmOsc { [](float x) { return std::sin (x); } };
     float fmMod { 0.0f };
     float fmDepth { 0.0f };

@@ -18,6 +18,8 @@
       <GROUP id="{F763CC91-BD2D-7AF9-546F-8878966BB954}" name="Data">
         <FILE id="LoPzV0" name="AdsrData.cpp" compile="1" resource="0" file="Source/Data/AdsrData.cpp"/>
         <FILE id="jhGYSk" name="AdsrData.h" compile="0" resource="0" file="Source/Data/AdsrData.h"/>
+        <FILE id="rlWq7V" name="DelayData.cpp" compile="1" resource="0" file="Source/Data/DelayData.cpp"/>
+        <FILE id="KMsRG1" name="DelayData.h" compile="0" resource="0" file="Source/Data/DelayData.h"/>
         <FILE id="SGqAga" name="FilterData.cpp" compile="1" resource="0" file="Source/Data/FilterData.cpp"/>
         <FILE id="uMri6b" name="FilterData.h" compile="0" resource="0" file="Source/Data/FilterData.h"/>
         <FILE id="mEn0hO" name="OscData.cpp" compile="1" resource="0" file="Source/Data/OscData.cpp"/>
@@ -27,13 +29,22 @@
         <FILE id="Gh5xhC" name="AdsrComponent.cpp" compile="1" resource="0"
               file="Source/UI/AdsrComponent.cpp"/>
         <FILE id="xSj7wT" name="AdsrComponent.h" compile="0" resource="0" file="Source/UI/AdsrComponent.h"/>
+        <FILE id="jEg4Ev" name="DelayComponent.cpp" compile="1" resource="0"
+              file="Source/UI/DelayComponent.cpp"/>
+        <FILE id="RPCrne" name="DelayComponent.h" compile="0" resource="0"
+              file="Source/UI/DelayComponent.h"/>
         <FILE id="lv7180" name="FilterComponent.cpp" compile="1" resource="0"
-              file="Source/UI/FilterComponent.cpp"/>
+              file="Source/UI/FilterComponent.cpp" xcodeResource="1"/>
         <FILE id="A2GA3f" name="FilterComponent.h" compile="0" resource="0"
               file="Source/UI/FilterComponent.h"/>
+        <FILE id="Hk5HZM" name="Keyboard.cpp" compile="1" resource="0" file="Source/UI/Keyboard.cpp"/>
+        <FILE id="urBGmM" name="Keyboard.h" compile="0" resource="0" file="Source/UI/Keyboard.h"/>
         <FILE id="D3P1YA" name="OscComponent.cpp" compile="1" resource="0"
               file="Source/UI/OscComponent.cpp"/>
         <FILE id="udQwcP" name="OscComponent.h" compile="0" resource="0" file="Source/UI/OscComponent.h"/>
+        <FILE id="Rg1mFZ" name="Oscilloscope.cpp" compile="1" resource="0"
+              file="Source/UI/Oscilloscope.cpp"/>
+        <FILE id="uccwbd" name="Oscilloscope.h" compile="0" resource="0" file="Source/UI/Oscilloscope.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>
