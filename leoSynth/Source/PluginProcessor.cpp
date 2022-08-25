@@ -9,6 +9,7 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+
 //==============================================================================
 leoSynthAudioProcessor::leoSynthAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -23,8 +24,9 @@ leoSynthAudioProcessor::leoSynthAudioProcessor()
 #endif
 {
     synth.addSound (new SynthSound());
-    synth.addVoice (new SynthVoice());
-    synth.addVoice(new SynthVoice());
+    for(int i=0; i<5; i++){
+        synth.addVoice(new SynthVoice());
+    }
 }
 
 leoSynthAudioProcessor::~leoSynthAudioProcessor()
@@ -152,16 +154,11 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
     {
         if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))
         {
-            //OSC1
-            auto& oscWaveChoice = *apvts.getRawParameterValue ("OSC1WAVETYPE");
-            auto& fmFreq = *apvts.getRawParameterValue ("OSC1FMFREQ");
-            auto& fmDepth = *apvts.getRawParameterValue ("OSC1FMDEPTH");
             
-            //OSC2
-            auto& oscWaveChoice2 = *apvts.getRawParameterValue ("OSC2WAVETYPE");
-            auto& fmFreq2 = *apvts.getRawParameterValue ("OSC2FMFREQ");
-            auto& fmDepth2 = *apvts.getRawParameterValue ("OSC2FMDEPTH");
-            
+            //OSC
+            auto& oscWaveChoice = *apvts.getRawParameterValue ("OSCWAVETYPE");
+            auto& fmFreq = *apvts.getRawParameterValue ("OSCFMFREQ");
+            auto& fmDepth = *apvts.getRawParameterValue ("OSCFMDEPTH");
             //AMP ADSR
             auto& attack = *apvts.getRawParameterValue ("ATTACK");
             auto& decay = *apvts.getRawParameterValue ("DECAY");
@@ -182,8 +179,6 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             // DELAY
             auto& delayTime = *apvts.getRawParameterValue("DELAYTIME");
             auto& delayFeedback = *apvts.getRawParameterValue("DELAYFEEDBACK");
-            
-            
             voice->getOscillator().setWaveType (oscWaveChoice);
             voice->getOscillator().updateFm (fmFreq, fmDepth);
             voice->updateAdsr (attack.load(), decay.load(), sustain.load(), release.load());
@@ -194,7 +189,6 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
     }
     
     synth.renderNextBlock (buffer, midiMessages, 0, buffer.getNumSamples());
-    
    
     
 }
@@ -236,19 +230,10 @@ juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::crea
     std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
     //OSC MAIN
     // OSC select
-    params.push_back (std::make_unique<juce::AudioParameterChoice>("OSC1WAVETYPE", "Osc 1 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
+    params.push_back (std::make_unique<juce::AudioParameterChoice>("OSCWAVETYPE", "Osc 1 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMFREQ", "Osc 1 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMDEPTH", "Osc 1 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
     
-    // FM
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC1FMFREQ", "Osc 1 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC1FMDEPTH", "Osc 1 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
-    
-    //OSC 2
-    // OSC select
-    params.push_back (std::make_unique<juce::AudioParameterChoice>("OSC2WAVETYPE", "Osc 2 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
-    
-    // FM
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC2FMFREQ", "Osc 2 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC1FMDEPTH", "Osc 2 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
     // ADSR
     params.push_back (std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f));
@@ -265,7 +250,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::crea
     params.push_back (std::make_unique<juce::AudioParameterChoice>("FILTERTYPE", "Filter Type", juce::StringArray { "Low-pass", "Band-pass", "High-pass" }, 0));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("FILTERFREQ", "Filter Cutoff", juce::NormalisableRange<float> { 20.0f, 20000.0f, 0.1f, 0.6f }, 200.0f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("FILTERRES", "Filter Resonance", juce::NormalisableRange<float> { 1.0f, 10.0f, 0.1f }, 1.0f));
-    
+
     // Delay
     params.push_back (std::make_unique<juce::AudioParameterFloat>("DELAYTIME", "Delay Time", juce::NormalisableRange<float> { 20.0f, 20000.0f, 0.1f, 0.6f }, 200.0f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("DELAYFEEDBACK", "Feedback", juce::NormalisableRange<float> { 20.0f, 20000.0f, 0.1f, 0.6f }, 200.0f));

@@ -35,6 +35,7 @@ private:
     AdsrComponent adsr;
     FilterComponent filter;
     AdsrComponent modAdsr;
+
     DelayComponent delay;
     Oscilloscope oscilloscope;
     Keyboard keyboard;
