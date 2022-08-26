@@ -62,7 +62,6 @@ private:
     juce::Synthesiser synth;
     juce::AudioProcessorValueTreeState::ParameterLayout createParams();
     juce::AudioBuffer<float> mDelayBuffer;
-
    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (leoSynthAudioProcessor)

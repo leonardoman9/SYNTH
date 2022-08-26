@@ -11,7 +11,7 @@
 #include "OscComponent.h"
 
 //==============================================================================
-OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::String waveSelectorId, juce::String fmFreqId, juce::String fmDepthId, juce::String gainId, juce::String pitchId)
+OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::String waveSelectorId, juce::String fmFreqId, juce::String fmDepthId, juce::String gainId, juce::String pitchId, juce::String oscName)
 {
     juce::StringArray choices { "Sine", "Saw", "Square" };
     oscWaveSelector.addItemList (choices, 1);
@@ -21,16 +21,23 @@ OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::Str
     
     waveSelectorLabel.setColour (juce::Label::ColourIds::textColourId, juce::Colours::white);
      waveSelectorLabel.setFont (15.0f);
-     waveSelectorLabel.setJustificationType (juce::Justification::left);
+    waveSelectorLabel.setJustificationType (juce::Justification::left);
     addAndMakeVisible (waveSelectorLabel);
     setSliderWithLabel (fmFreqSlider, fmFreqLabel, apvts, fmFreqId, fmFreqAttachment);
     setSliderWithLabel (fmDepthSlider, fmDepthLabel, apvts, fmDepthId, fmDepthAttachment);
     setSliderWithLabel(gainSlider, gainLabel, apvts, gainId, gainAttachment);
     setSliderWithLabel(pitchSlider, pitchLabel, apvts, pitchId, pitchAttachment);
+    setTitle(oscName);
         
 }
 OscComponent::~OscComponent()
 {
+}
+
+
+void OscComponent::setTitle(juce::String newTitle)
+{
+    title = newTitle; 
 }
 
 void OscComponent::paint (juce::Graphics& g)
@@ -40,7 +47,7 @@ void OscComponent::paint (juce::Graphics& g)
          g.fillAll (juce::Colours::black);
          g.setColour (juce::Colours::white);
          g.setFont (20.0f);
-         g.drawText ("Oscillator", labelSpace.withX (5), juce::Justification::left);
+         g.drawText (OscComponent::getTitle(), labelSpace.withX (5), juce::Justification::left);
          g.drawRoundedRectangle (bounds.toFloat(), 5.0f, 2.0f);
 }
 
@@ -51,6 +58,7 @@ void OscComponent::resized()
     const auto sliderHeight = 90;
     const auto labelYOffset = 20;
     const auto labelHeight = 20;
+    const auto paddingY = 30;
     oscWaveSelector.setBounds (10, startY + 5, 90, 30);
      waveSelectorLabel.setBounds (10, startY - labelYOffset, 90, labelHeight);
 
@@ -60,10 +68,10 @@ void OscComponent::resized()
      fmDepthSlider.setBounds (fmFreqSlider.getRight(), startY, sliderWidth, sliderHeight);
      fmDepthLabel.setBounds (fmDepthSlider.getX(), fmDepthSlider.getY() - labelYOffset, fmDepthSlider.getWidth(), labelHeight);
     
-    gainSlider.setBounds(oscWaveSelector.getX(), startY + 50, sliderWidth, sliderHeight);
+    gainSlider.setBounds(fmFreqSlider.getX(), fmFreqSlider.getBottom()+paddingY, sliderWidth, sliderHeight);
     gainLabel.setBounds(gainSlider.getX(), gainSlider.getY() - labelYOffset, gainSlider.getWidth(), labelHeight);
     
-    pitchSlider.setBounds(fmFreqSlider.getX(), fmFreqSlider.getBottom(), sliderWidth/2, sliderHeight/2);
+    pitchSlider.setBounds(fmDepthSlider.getX(), fmDepthSlider.getBottom()+paddingY, sliderWidth, sliderHeight);
     pitchLabel.setBounds(pitchSlider.getX(), pitchSlider.getY()-labelYOffset, pitchSlider.getWidth(), labelHeight);
 }
 
@@ -81,4 +89,10 @@ void OscComponent::setSliderWithLabel (juce::Slider& slider, juce::Label& label,
     label.setFont (15.0f);
     label.setJustificationType (juce::Justification::centred);
     addAndMakeVisible (label);
+}
+
+
+juce::String OscComponent::getTitle()
+{
+    return title;
 }

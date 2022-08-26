@@ -36,10 +36,14 @@ void Oscilloscope::paint (juce::Graphics& g)
 
 void Oscilloscope::resized()
 {
+    /*
     const auto startY = 55;
     const auto sliderWidth = 100;
     const auto sliderHeight = 90;
     const auto labelYOffset = 20;
     const auto labelHeight = 20;
+     */
    
 }
+
+

@@ -166,6 +166,8 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& fmFreq = *apvts.getRawParameterValue ("OSCFMFREQ");
             auto& fmDepth = *apvts.getRawParameterValue ("OSCFMDEPTH");
             auto& osc1Pitch = *apvts.getRawParameterValue("OSC1PITCH");
+            auto& osc1Gain = *apvts.getRawParameterValue ("OSCGAIN");
+
 
             //OSC
             auto& oscWaveChoice2 = *apvts.getRawParameterValue ("OSCWAVETYPE2");
@@ -173,7 +175,6 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& fmDepth2 = *apvts.getRawParameterValue ("OSCFMDEPTH2");
             auto& osc2Pitch = *apvts.getRawParameterValue("OSC2PITCH");
             
-            auto& osc1Gain = *apvts.getRawParameterValue ("OSCGAIN");
             auto& osc2Gain = *apvts.getRawParameterValue ("OSCGAIN2");
             //AMP ADSR
             auto& attack = *apvts.getRawParameterValue ("ATTACK");
@@ -196,11 +197,11 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& modRelease = *apvts.getRawParameterValue ("MODRELEASE");
             // MOD ADSR
             
-            
-            // DELAY
+            /*
+        // DELAY
             auto& delayTime = *apvts.getRawParameterValue("DELAYTIME");
             auto& delayFeedback = *apvts.getRawParameterValue("DELAYFEEDBACK");
-            
+            */
             auto& osc1 = voice->getOscillator1();
             auto& osc2 = voice->getOscillator2();
             for (int i=0; i<getTotalNumOutputChannels();i++)
@@ -270,27 +271,28 @@ juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::crea
     params.push_back (std::make_unique<juce::AudioParameterChoice>("OSCWAVETYPE", "Osc 1 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMFREQ", "Osc 1 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMDEPTH", "Osc 1 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC1PITCH", "Osc 1 Pitch", juce::NormalisableRange<float> { -64.0f, 64.0f, 0.1f}, 0.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC1PITCH", "Osc 1 Pitch", juce::NormalisableRange<float> { -64.0f, 64.0f, 1.0f}, 0.0f));
     params.push_back (std::make_unique<juce::AudioParameterChoice>("OSCWAVETYPE2", "Osc 2 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMFREQ2", "Osc 2 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMDEPTH2", "Osc 2 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC2PITCH", "Osc 2 Pitch", juce::NormalisableRange<float> { -64.0f, 64.0f, 0.1f}, 0.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC2PITCH", "Osc 2 Pitch", juce::NormalisableRange<float> { -64.0f, 64.0f, 1.0f}, 0.0f));
+    
     // OSC Gain
         params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCGAIN", "Oscillator 1 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
         params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCGAIN2", "Oscillator 2 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
         
 
     // ADSR
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUSTAIN", "Sustain", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 1.0f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("RELEASE", "Release", juce::NormalisableRange<float> { 0.1f, 3.0f, 0.1f }, 0.4f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> { 0.01f, 1.0f, 0.01f }, 0.1f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> { 0.01f, 1.0f, 0.1f }, 0.01f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUSTAIN", "Sustain", juce::NormalisableRange<float> { 0.01f, 1.0f, 0.01f }, 1.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("RELEASE", "Release", juce::NormalisableRange<float> { 0.01f, 3.0f, 0.01f }, 0.4f));
     
     // Filter ADSR
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("MODATTACK", "Mod Attack", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("MODDECAY", "Mod Decay", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("MODSUSTAIN", "Mod Sustain", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 1.0f));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("MODRELEASE", "Mod Release", juce::NormalisableRange<float> { 0.1f, 3.0f, 0.1f }, 0.4f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("MODATTACK", "Mod Attack", juce::NormalisableRange<float> { 0.01f, 1.0f, 0.01f }, 0.1f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("MODDECAY", "Mod Decay", juce::NormalisableRange<float> { 0.01f, 1.0f, 0.01f }, 0.1f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("MODSUSTAIN", "Mod Sustain", juce::NormalisableRange<float> { 0.01f, 1.0f, 0.01f }, 1.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("MODRELEASE", "Mod Release", juce::NormalisableRange<float> { 0.01f, 3.0f, 0.01f }, 0.4f));
     
     // Filter
     params.push_back (std::make_unique<juce::AudioParameterChoice>("FILTERTYPE", "Filter Type", juce::StringArray { "Low-pass", "Band-pass", "High-pass" }, 0));
