@@ -11,7 +11,7 @@
 #include "OscComponent.h"
 
 //==============================================================================
-OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::String waveSelectorId, juce::String fmFreqId, juce::String fmDepthId)
+OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::String waveSelectorId, juce::String fmFreqId, juce::String fmDepthId, juce::String gainId)
 {
     juce::StringArray choices { "Sine", "Saw", "Square" };
     oscWaveSelector.addItemList (choices, 1);
@@ -23,10 +23,9 @@ OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::Str
      waveSelectorLabel.setFont (15.0f);
      waveSelectorLabel.setJustificationType (juce::Justification::left);
      addAndMakeVisible (waveSelectorLabel);
-
-    
     setSliderWithLabel (fmFreqSlider, fmFreqLabel, apvts, fmFreqId, fmFreqAttachment);
     setSliderWithLabel (fmDepthSlider, fmDepthLabel, apvts, fmDepthId, fmDepthAttachment);
+    setSliderWithLabel(gainSlider, gainLabel, apvts, gainId, gainAttachment);
 }
 
 OscComponent::~OscComponent()
@@ -60,6 +59,9 @@ void OscComponent::resized()
 
      fmDepthSlider.setBounds (fmFreqSlider.getRight(), startY, sliderWidth, sliderHeight);
      fmDepthLabel.setBounds (fmDepthSlider.getX(), fmDepthSlider.getY() - labelYOffset, fmDepthSlider.getWidth(), labelHeight);
+    
+    gainSlider.setBounds(oscWaveSelector.getX(), startY + 50, sliderWidth, sliderHeight);
+    gainLabel.setBounds(gainSlider.getX(), gainSlider.getY() - labelYOffset, gainSlider.getWidth(), labelHeight);
 }
 
 using Attachment = juce::AudioProcessorValueTreeState::SliderAttachment;

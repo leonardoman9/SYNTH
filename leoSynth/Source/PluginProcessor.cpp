@@ -108,6 +108,10 @@ void leoSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlo
             voice->prepareToPlay (sampleRate, samplesPerBlock, getTotalNumOutputChannels());
         }
     }
+    juce::dsp::ProcessSpec spec;
+    spec.maximumBlockSize = samplesPerBlock;
+    spec.sampleRate = sampleRate;
+    spec.numChannels = getTotalNumOutputChannels();
    
 }
 
@@ -149,6 +153,8 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
 
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
+    
+    
 
     for (int i = 0; i < synth.getNumVoices(); ++i)
     {
@@ -159,28 +165,54 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& oscWaveChoice = *apvts.getRawParameterValue ("OSCWAVETYPE");
             auto& fmFreq = *apvts.getRawParameterValue ("OSCFMFREQ");
             auto& fmDepth = *apvts.getRawParameterValue ("OSCFMDEPTH");
+            //OSC
+            auto& oscWaveChoice2 = *apvts.getRawParameterValue ("OSCWAVETYPE2");
+            auto& fmFreq2 = *apvts.getRawParameterValue ("OSCFMFREQ2");
+            auto& fmDepth2 = *apvts.getRawParameterValue ("OSCFMDEPTH2");
+            
+            auto& osc1Gain = *apvts.getRawParameterValue ("OSCGAIN");
+            auto& osc2Gain = *apvts.getRawParameterValue ("OSCGAIN2");
             //AMP ADSR
             auto& attack = *apvts.getRawParameterValue ("ATTACK");
             auto& decay = *apvts.getRawParameterValue ("DECAY");
             auto& sustain = *apvts.getRawParameterValue ("SUSTAIN");
             auto& release = *apvts.getRawParameterValue ("RELEASE");
+           
             
             // FILTER
             auto& filterType = *apvts.getRawParameterValue("FILTERTYPE");
             auto& cutoff = *apvts.getRawParameterValue("FILTERFREQ");
             auto& resonance = *apvts.getRawParameterValue("FILTERRES");
+            // FILTER
+            
             
             // MOD ADSR
             auto& modAttack = *apvts.getRawParameterValue ("MODATTACK");
             auto& modDecay = *apvts.getRawParameterValue ("MODDECAY");
             auto& modSustain = *apvts.getRawParameterValue ("MODSUSTAIN");
             auto& modRelease = *apvts.getRawParameterValue ("MODRELEASE");
+            // MOD ADSR
+            
             
             // DELAY
             auto& delayTime = *apvts.getRawParameterValue("DELAYTIME");
             auto& delayFeedback = *apvts.getRawParameterValue("DELAYFEEDBACK");
-            voice->getOscillator().setWaveType (oscWaveChoice);
-            voice->getOscillator().updateFm (fmFreq, fmDepth);
+            
+            auto& osc1 = voice->getOscillator1();
+            auto& osc2 = voice->getOscillator2();
+            for (int i=0; i<getTotalNumOutputChannels();i++)
+            {
+                osc1[i].setWaveType(oscWaveChoice);
+                osc1[i].setFrequency(fmFreq);
+                osc1[i].updateFm(fmFreq, fmDepth);
+                osc1[i].setGain(osc1Gain);
+                osc2[i].setWaveType(oscWaveChoice2);
+                osc2[i].setFrequency(fmFreq2);
+                osc2[i].updateFm(fmFreq2, fmDepth2);
+                osc2[i].setGain(osc2Gain);
+            }
+            
+            
             voice->updateAdsr (attack.load(), decay.load(), sustain.load(), release.load());
             voice->updateFilter (filterType.load(), cutoff.load(), resonance.load());
             voice->updateModAdsr(modAttack, modDecay, modSustain, modRelease);
@@ -233,7 +265,14 @@ juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::crea
     params.push_back (std::make_unique<juce::AudioParameterChoice>("OSCWAVETYPE", "Osc 1 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMFREQ", "Osc 1 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMDEPTH", "Osc 1 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
-    
+    params.push_back (std::make_unique<juce::AudioParameterChoice>("OSCWAVETYPE2", "Osc 2 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMFREQ2", "Osc 2 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMDEPTH2", "Osc 2 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
+    // OSC Gain
+        params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCGAIN", "Oscillator 1 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
+        params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCGAIN2", "Oscillator 2 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
+        
+
     // ADSR
     params.push_back (std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f));
@@ -251,6 +290,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::crea
     params.push_back (std::make_unique<juce::AudioParameterFloat>("FILTERFREQ", "Filter Cutoff", juce::NormalisableRange<float> { 20.0f, 20000.0f, 0.1f, 0.6f }, 200.0f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("FILTERRES", "Filter Resonance", juce::NormalisableRange<float> { 1.0f, 10.0f, 0.1f }, 1.0f));
 
+   
     // Delay
     params.push_back (std::make_unique<juce::AudioParameterFloat>("DELAYTIME", "Delay Time", juce::NormalisableRange<float> { 20.0f, 20000.0f, 0.1f, 0.6f }, 200.0f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("DELAYFEEDBACK", "Feedback", juce::NormalisableRange<float> { 20.0f, 20000.0f, 0.1f, 0.6f }, 200.0f));

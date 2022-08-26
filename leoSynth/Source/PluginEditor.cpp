@@ -13,7 +13,8 @@
 leoSynthAudioProcessorEditor::leoSynthAudioProcessorEditor (leoSynthAudioProcessor& p)
     : AudioProcessorEditor (&p),
 audioProcessor (p),
-osc (audioProcessor.apvts, "OSCWAVETYPE", "OSCFMFREQ", "OSCFMDEPTH"),
+osc (audioProcessor.apvts, "OSCWAVETYPE", "OSCFMFREQ", "OSCFMDEPTH", "OSCGAIN"),
+osc2 (audioProcessor.apvts, "OSCWAVETYPE2", "OSCFMFREQ2", "OSCFMDEPTH2", "OSCGAIN2"),
 adsr("Amp Envelope", audioProcessor.apvts, "ATTACK", "DECAY", "SUSTAIN", "RELEASE"),
 filter(audioProcessor.apvts, "FILTERTYPE", "FILTERFREQ", "FILTERRES"),
 modAdsr("Mod Envelope", audioProcessor.apvts, "MODATTACK", "MODDECAY", "MODSUSTAIN", "MODRELEASE"),
@@ -24,11 +25,12 @@ keyboard()
 
 {
    
-    setSize (1280, 800);
+    setSize (1280, 500);
     addAndMakeVisible (osc);
     addAndMakeVisible (adsr);
     addAndMakeVisible(filter);
     addAndMakeVisible(modAdsr);
+    addAndMakeVisible(osc2);
 }
 
 leoSynthAudioProcessorEditor::~leoSynthAudioProcessorEditor()
@@ -53,9 +55,12 @@ void leoSynthAudioProcessorEditor::resized()
 
 
     osc.setBounds (paddingX, paddingY, width, height);
-    adsr.setBounds (osc.getRight(), paddingY, width, height);
-    filter.setBounds(paddingX, paddingY2, width, height);
-    modAdsr.setBounds(filter.getRight(), paddingY2, width, height);
+    osc2.setBounds(paddingX, paddingY2, width, height);
+    
+    adsr.setBounds (osc.getRight(), paddingY2/2, width, height);
+    filter.setBounds(adsr.getRight(), adsr.getY(), width, height);
+    modAdsr.setBounds(filter.getRight(), filter.getY(), width, height);
+
     
 }
 

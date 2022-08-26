@@ -29,13 +29,17 @@ public:
     void updateAdsr (const float attack, const float decay, const float sustain, const float release);
     void updateFilter (const int filterType, const float frequency, const float resonance);
     void updateModAdsr (const float attack, const float decay, const float sustain, const float release);
-    OscData& getOscillator() { return osc; }
+    std::array<OscData, 2>& getOscillator1() { return osc; }
+    std::array<OscData, 2>& getOscillator2() { return osc2; }
+    void reset();
     
 private:
     juce::AudioBuffer<float> synthBuffer;
-    OscData osc;
+    static constexpr int numChannelsToProcess { 2 };
+    std::array<OscData, numChannelsToProcess> osc;
+    std::array<OscData, numChannelsToProcess> osc2;
+    std::array<FilterData, numChannelsToProcess> filter;
     AdsrData adsr;
-    FilterData filter;
     AdsrData modAdsr;
     juce::dsp::Gain<float> gain;
     bool isPrepared { false };

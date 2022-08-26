@@ -32,10 +32,12 @@ private:
     
     leoSynthAudioProcessor& audioProcessor;
     OscComponent osc;
+    OscComponent osc2;
     AdsrComponent adsr;
     FilterComponent filter;
     AdsrComponent modAdsr;
 
+    
     DelayComponent delay;
     Oscilloscope oscilloscope;
     Keyboard keyboard;

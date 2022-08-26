@@ -12,7 +12,7 @@
 
 void FilterData::prepareToPlay(double sampleRate, int samplesPerBlock, int numChannels)
 {
-    filter.reset();
+    reset();
     juce::dsp::ProcessSpec spec;
     spec.maximumBlockSize = samplesPerBlock;
     spec.sampleRate = sampleRate;
@@ -53,7 +53,10 @@ void FilterData::updateParameters(const int filterType, const float frequency, c
     filter.setCutoffFrequency(modFreq);
     filter.setResonance(resonance);
 }
-
+float FilterData::processNextSample (int channel, float inputValue)
+{
+    return processSample (channel, inputValue);
+}
     
 void FilterData::reset()
 {
