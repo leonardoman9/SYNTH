@@ -13,8 +13,8 @@
 leoSynthAudioProcessorEditor::leoSynthAudioProcessorEditor (leoSynthAudioProcessor& p)
     : AudioProcessorEditor (&p),
 audioProcessor (p),
-osc (audioProcessor.apvts, "OSCWAVETYPE", "OSCFMFREQ", "OSCFMDEPTH", "OSCGAIN"),
-osc2 (audioProcessor.apvts, "OSCWAVETYPE2", "OSCFMFREQ2", "OSCFMDEPTH2", "OSCGAIN2"),
+osc (audioProcessor.apvts, "OSCWAVETYPE", "OSCFMFREQ", "OSCFMDEPTH", "OSCGAIN", "OSC1PITCH"),
+osc2 (audioProcessor.apvts, "OSCWAVETYPE2", "OSCFMFREQ2", "OSCFMDEPTH2", "OSCGAIN2", "OSC2PITCH"),
 adsr("Amp Envelope", audioProcessor.apvts, "ATTACK", "DECAY", "SUSTAIN", "RELEASE"),
 filter(audioProcessor.apvts, "FILTERTYPE", "FILTERFREQ", "FILTERRES"),
 modAdsr("Mod Envelope", audioProcessor.apvts, "MODATTACK", "MODDECAY", "MODSUSTAIN", "MODRELEASE"),
@@ -48,8 +48,7 @@ void leoSynthAudioProcessorEditor::resized()
     const auto paddingX = 5;
     const auto paddingY = 35;
     const auto paddingY2 = 235;
-    const auto paddingY3 = 435;
-    const auto paddingY4 = 635;
+
     const auto width = 300;
     const auto height = 200;
 

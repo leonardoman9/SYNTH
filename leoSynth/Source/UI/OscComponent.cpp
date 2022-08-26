@@ -11,7 +11,7 @@
 #include "OscComponent.h"
 
 //==============================================================================
-OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::String waveSelectorId, juce::String fmFreqId, juce::String fmDepthId, juce::String gainId)
+OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::String waveSelectorId, juce::String fmFreqId, juce::String fmDepthId, juce::String gainId, juce::String pitchId)
 {
     juce::StringArray choices { "Sine", "Saw", "Square" };
     oscWaveSelector.addItemList (choices, 1);
@@ -22,12 +22,13 @@ OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::Str
     waveSelectorLabel.setColour (juce::Label::ColourIds::textColourId, juce::Colours::white);
      waveSelectorLabel.setFont (15.0f);
      waveSelectorLabel.setJustificationType (juce::Justification::left);
-     addAndMakeVisible (waveSelectorLabel);
+    addAndMakeVisible (waveSelectorLabel);
     setSliderWithLabel (fmFreqSlider, fmFreqLabel, apvts, fmFreqId, fmFreqAttachment);
     setSliderWithLabel (fmDepthSlider, fmDepthLabel, apvts, fmDepthId, fmDepthAttachment);
     setSliderWithLabel(gainSlider, gainLabel, apvts, gainId, gainAttachment);
+    setSliderWithLabel(pitchSlider, pitchLabel, apvts, pitchId, pitchAttachment);
+        
 }
-
 OscComponent::~OscComponent()
 {
 }
@@ -53,7 +54,6 @@ void OscComponent::resized()
     oscWaveSelector.setBounds (10, startY + 5, 90, 30);
      waveSelectorLabel.setBounds (10, startY - labelYOffset, 90, labelHeight);
 
-     fmDepthSlider.setBounds (fmFreqSlider.getRight(), startY, sliderWidth, sliderHeight);
      fmFreqSlider.setBounds (oscWaveSelector.getRight(), startY, sliderWidth, sliderHeight);
      fmFreqLabel.setBounds (fmFreqSlider.getX(), fmFreqSlider.getY() - labelYOffset, fmFreqSlider.getWidth(), labelHeight);
 
@@ -62,6 +62,9 @@ void OscComponent::resized()
     
     gainSlider.setBounds(oscWaveSelector.getX(), startY + 50, sliderWidth, sliderHeight);
     gainLabel.setBounds(gainSlider.getX(), gainSlider.getY() - labelYOffset, gainSlider.getWidth(), labelHeight);
+    
+    pitchSlider.setBounds(fmFreqSlider.getX(), fmFreqSlider.getBottom(), sliderWidth/2, sliderHeight/2);
+    pitchLabel.setBounds(pitchSlider.getX(), pitchSlider.getY()-labelYOffset, pitchSlider.getWidth(), labelHeight);
 }
 
 using Attachment = juce::AudioProcessorValueTreeState::SliderAttachment;

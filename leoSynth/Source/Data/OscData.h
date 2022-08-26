@@ -17,6 +17,7 @@ public:
     void prepareToPlay (double sampleRate, int samplesPerBlock, int outputChannels);
     void setWaveType (const int choice);
     void setGain (const float levelInDecibels);
+    void setPitch(int pitch);
     void setWaveFrequency (const int midiNoteNumber);
     void getNextAudioBlock (juce::dsp::AudioBlock<float>& block);
     void updateFm (const float freq, const float depth);

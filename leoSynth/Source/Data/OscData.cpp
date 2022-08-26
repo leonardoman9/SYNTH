@@ -84,3 +84,9 @@ void OscData::updateFm (const float freq, const float depth)
     auto currentFreq = juce::MidiMessage::getMidiNoteInHertz (lastMidiNote) + fmMod;
     setFrequency (currentFreq >= 0 ? currentFreq : currentFreq * -1.0f);
 }
+
+void OscData::setPitch(int pitch)
+{
+    auto toAddFreq = juce::MidiMessage::getMidiNoteInHertz(pitch);
+    setFrequency (juce::MidiMessage::getMidiNoteInHertz (lastMidiNote) + fmMod + toAddFreq);
+}

@@ -165,10 +165,13 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& oscWaveChoice = *apvts.getRawParameterValue ("OSCWAVETYPE");
             auto& fmFreq = *apvts.getRawParameterValue ("OSCFMFREQ");
             auto& fmDepth = *apvts.getRawParameterValue ("OSCFMDEPTH");
+            auto& osc1Pitch = *apvts.getRawParameterValue("OSC1PITCH");
+
             //OSC
             auto& oscWaveChoice2 = *apvts.getRawParameterValue ("OSCWAVETYPE2");
             auto& fmFreq2 = *apvts.getRawParameterValue ("OSCFMFREQ2");
             auto& fmDepth2 = *apvts.getRawParameterValue ("OSCFMDEPTH2");
+            auto& osc2Pitch = *apvts.getRawParameterValue("OSC2PITCH");
             
             auto& osc1Gain = *apvts.getRawParameterValue ("OSCGAIN");
             auto& osc2Gain = *apvts.getRawParameterValue ("OSCGAIN2");
@@ -206,10 +209,12 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
                 osc1[i].setFrequency(fmFreq);
                 osc1[i].updateFm(fmFreq, fmDepth);
                 osc1[i].setGain(osc1Gain);
+                osc1[i].setPitch(osc1Pitch);
                 osc2[i].setWaveType(oscWaveChoice2);
                 osc2[i].setFrequency(fmFreq2);
                 osc2[i].updateFm(fmFreq2, fmDepth2);
                 osc2[i].setGain(osc2Gain);
+                osc2[i].setPitch(osc2Pitch);
             }
             
             
@@ -265,9 +270,11 @@ juce::AudioProcessorValueTreeState::ParameterLayout leoSynthAudioProcessor::crea
     params.push_back (std::make_unique<juce::AudioParameterChoice>("OSCWAVETYPE", "Osc 1 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMFREQ", "Osc 1 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMDEPTH", "Osc 1 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC1PITCH", "Osc 1 Pitch", juce::NormalisableRange<float> { -64.0f, 64.0f, 0.1f}, 0.0f));
     params.push_back (std::make_unique<juce::AudioParameterChoice>("OSCWAVETYPE2", "Osc 2 Wave Type", juce::StringArray { "Sine", "Saw", "Square" }, 0));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMFREQ2", "Osc 2 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCFMDEPTH2", "Osc 2 FM Depth", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f }, 0.0f));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC2PITCH", "Osc 2 Pitch", juce::NormalisableRange<float> { -64.0f, 64.0f, 0.1f}, 0.0f));
     // OSC Gain
         params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCGAIN", "Oscillator 1 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
         params.push_back (std::make_unique<juce::AudioParameterFloat>("OSCGAIN2", "Oscillator 2 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));

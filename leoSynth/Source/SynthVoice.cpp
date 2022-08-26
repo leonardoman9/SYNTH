@@ -20,7 +20,7 @@ void SynthVoice::startNote (int midiNoteNumber, float velocity, juce::Synthesise
 {
     for (int i=0; i<2; i++){
         osc[i].setWaveFrequency (midiNoteNumber);
-        osc2[2].setWaveFrequency (midiNoteNumber);
+        osc2[i].setWaveFrequency (midiNoteNumber);
 
     }
     adsr.noteOn();
