@@ -26,12 +26,17 @@ public:
     void prepareToPlay (double sampleRate, int samplesPerBlock, int outputChannels);
     void renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int startSample, int numSamples) override;
     
+    void reset();
+    
+    std::array<OscData, 2>& getOscillator1() { return osc; }
+    std::array<OscData, 2>& getOscillator2() { return osc2; }
+    AdsrData& getAdsr() {return adsr;}
+    AdsrData& getFilterAdsr() {return modAdsr;}
     void updateAdsr (const float attack, const float decay, const float sustain, const float release);
     void updateFilter (const int filterType, const float frequency, const float resonance);
     void updateModAdsr (const float attack, const float decay, const float sustain, const float release);
-    std::array<OscData, 2>& getOscillator1() { return osc; }
-    std::array<OscData, 2>& getOscillator2() { return osc2; }
-    void reset();
+
+    
     
 private:
     juce::AudioBuffer<float> synthBuffer;

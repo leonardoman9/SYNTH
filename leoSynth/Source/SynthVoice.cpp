@@ -65,10 +65,6 @@ void SynthVoice::prepareToPlay (double sampleRate, int samplesPerBlock, int outp
     isPrepared = true;
 }
 
-void SynthVoice::updateAdsr (const float attack, const float decay, const float sustain, const float release)
-{
-    adsr.updateADSR (attack, decay, sustain, release);
-}
 
 void SynthVoice::renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int startSample, int numSamples)
 {

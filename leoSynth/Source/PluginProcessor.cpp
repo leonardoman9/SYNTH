@@ -161,7 +161,7 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
         if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))
         {
             
-            //OSC
+            //OSC1
             auto& oscWaveChoice = *apvts.getRawParameterValue ("OSCWAVETYPE");
             auto& fmFreq = *apvts.getRawParameterValue ("OSCFMFREQ");
             auto& fmDepth = *apvts.getRawParameterValue ("OSCFMDEPTH");
@@ -169,14 +169,14 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& osc1Gain = *apvts.getRawParameterValue ("OSCGAIN");
 
 
-            //OSC
+            //OSC2
             auto& oscWaveChoice2 = *apvts.getRawParameterValue ("OSCWAVETYPE2");
             auto& fmFreq2 = *apvts.getRawParameterValue ("OSCFMFREQ2");
             auto& fmDepth2 = *apvts.getRawParameterValue ("OSCFMDEPTH2");
             auto& osc2Pitch = *apvts.getRawParameterValue("OSC2PITCH");
-            
             auto& osc2Gain = *apvts.getRawParameterValue ("OSCGAIN2");
-            //AMP ADSR
+            
+            //ADSR
             auto& attack = *apvts.getRawParameterValue ("ATTACK");
             auto& decay = *apvts.getRawParameterValue ("DECAY");
             auto& sustain = *apvts.getRawParameterValue ("SUSTAIN");
@@ -187,23 +187,21 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             auto& filterType = *apvts.getRawParameterValue("FILTERTYPE");
             auto& cutoff = *apvts.getRawParameterValue("FILTERFREQ");
             auto& resonance = *apvts.getRawParameterValue("FILTERRES");
-            // FILTER
-            
-            
             // MOD ADSR
             auto& modAttack = *apvts.getRawParameterValue ("MODATTACK");
             auto& modDecay = *apvts.getRawParameterValue ("MODDECAY");
             auto& modSustain = *apvts.getRawParameterValue ("MODSUSTAIN");
             auto& modRelease = *apvts.getRawParameterValue ("MODRELEASE");
-            // MOD ADSR
             
             /*
         // DELAY
             auto& delayTime = *apvts.getRawParameterValue("DELAYTIME");
             auto& delayFeedback = *apvts.getRawParameterValue("DELAYFEEDBACK");
             */
+            
             auto& osc1 = voice->getOscillator1();
             auto& osc2 = voice->getOscillator2();
+            
             for (int i=0; i<getTotalNumOutputChannels();i++)
             {
                 osc1[i].setWaveType(oscWaveChoice);
@@ -221,8 +219,8 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             
             voice->updateAdsr (attack.load(), decay.load(), sustain.load(), release.load());
             voice->updateFilter (filterType.load(), cutoff.load(), resonance.load());
-            voice->updateModAdsr(modAttack, modDecay, modSustain, modRelease);
-            
+            filterAdsr.update (modAttack, modDecay, Sustain, filterRelease);
+
         }
     }
     
