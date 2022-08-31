@@ -22,7 +22,6 @@ public:
     void getNextAudioBlock (juce::dsp::AudioBlock<float>& block);
     void updateFm (const float freq, const float depth);
     float processNextSample(float input);
-
     
 private:
     void processFmOsc (juce::dsp::AudioBlock<float>& block);

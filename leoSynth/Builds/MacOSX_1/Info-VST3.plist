@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string></string>
     <key>CFBundleIdentifier</key>
-    <string>com.yourcompany.leoSynth</string>
+    <string>com.leonardomannini.leosynth</string>
     <key>CFBundleName</key>
     <string>leoSynth</string>
     <key>CFBundleDisplayName</key>

@@ -843,8 +843,8 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"leoSynth\\\"",
 					"JucePlugin_Desc=\\\"leoSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
+					"JucePlugin_Manufacturer=\\\"leonardomannini\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"www.leonardomannini.cloud\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x436e6b73",
@@ -864,7 +864,7 @@
 					"JucePlugin_AUExportPrefix=leoSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"leoSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.leoSynth",
+					"JucePlugin_CFBundleIdentifier=com.leonardomannini.leosynth",
 					"JucePlugin_AAXIdentifier=com.yourcompany.leoSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
@@ -873,7 +873,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ leoSynth\\\"",
+					"JucePlugin_IAAName=\\\"leonardomannini:\\ leoSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -899,7 +899,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = "/Users/leonardomannini/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/leonardomannini/JUCE/modules /Users/leonardomannini/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-lleoSynth -weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.leoSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardomannini.leosynth;
 				PRODUCT_NAME = "leoSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -963,8 +963,8 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"leoSynth\\\"",
 					"JucePlugin_Desc=\\\"leoSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
+					"JucePlugin_Manufacturer=\\\"leonardomannini\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"www.leonardomannini.cloud\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x436e6b73",
@@ -984,7 +984,7 @@
 					"JucePlugin_AUExportPrefix=leoSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"leoSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.leoSynth",
+					"JucePlugin_CFBundleIdentifier=com.leonardomannini.leosynth",
 					"JucePlugin_AAXIdentifier=com.yourcompany.leoSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
@@ -993,7 +993,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ leoSynth\\\"",
+					"JucePlugin_IAAName=\\\"leonardomannini:\\ leoSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1022,7 +1022,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = "/Users/leonardomannini/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/leonardomannini/JUCE/modules /Users/leonardomannini/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-bundle -lleoSynth -weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.leoSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardomannini.leosynth;
 				PRODUCT_NAME = "leoSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1077,8 +1077,8 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"leoSynth\\\"",
 					"JucePlugin_Desc=\\\"leoSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
+					"JucePlugin_Manufacturer=\\\"leonardomannini\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"www.leonardomannini.cloud\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x436e6b73",
@@ -1098,7 +1098,7 @@
 					"JucePlugin_AUExportPrefix=leoSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"leoSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.leoSynth",
+					"JucePlugin_CFBundleIdentifier=com.leonardomannini.leosynth",
 					"JucePlugin_AAXIdentifier=com.yourcompany.leoSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
@@ -1107,7 +1107,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ leoSynth\\\"",
+					"JucePlugin_IAAName=\\\"leonardomannini:\\ leoSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1134,7 +1134,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = "/Users/leonardomannini/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/leonardomannini/JUCE/modules /Users/leonardomannini/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.leoSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardomannini.leosynth;
 				PRODUCT_NAME = "leoSynth";
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
@@ -1191,8 +1191,8 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"leoSynth\\\"",
 					"JucePlugin_Desc=\\\"leoSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
+					"JucePlugin_Manufacturer=\\\"leonardomannini\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"www.leonardomannini.cloud\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x436e6b73",
@@ -1212,7 +1212,7 @@
 					"JucePlugin_AUExportPrefix=leoSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"leoSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.leoSynth",
+					"JucePlugin_CFBundleIdentifier=com.leonardomannini.leosynth",
 					"JucePlugin_AAXIdentifier=com.yourcompany.leoSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
@@ -1221,7 +1221,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ leoSynth\\\"",
+					"JucePlugin_IAAName=\\\"leonardomannini:\\ leoSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1251,7 +1251,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = "/Users/leonardomannini/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/leonardomannini/JUCE/modules /Users/leonardomannini/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-bundle -lleoSynth -weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.leoSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardomannini.leosynth;
 				PRODUCT_NAME = "leoSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1354,8 +1354,8 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"leoSynth\\\"",
 					"JucePlugin_Desc=\\\"leoSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
+					"JucePlugin_Manufacturer=\\\"leonardomannini\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"www.leonardomannini.cloud\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x436e6b73",
@@ -1375,7 +1375,7 @@
 					"JucePlugin_AUExportPrefix=leoSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"leoSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.leoSynth",
+					"JucePlugin_CFBundleIdentifier=com.leonardomannini.leosynth",
 					"JucePlugin_AAXIdentifier=com.yourcompany.leoSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
@@ -1384,7 +1384,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ leoSynth\\\"",
+					"JucePlugin_IAAName=\\\"leonardomannini:\\ leoSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1411,7 +1411,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = "/Users/leonardomannini/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/leonardomannini/JUCE/modules /Users/leonardomannini/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-lleoSynth -weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.leoSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardomannini.leosynth;
 				PRODUCT_NAME = "leoSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1467,8 +1467,8 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"leoSynth\\\"",
 					"JucePlugin_Desc=\\\"leoSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
+					"JucePlugin_Manufacturer=\\\"leonardomannini\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"www.leonardomannini.cloud\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x436e6b73",
@@ -1488,7 +1488,7 @@
 					"JucePlugin_AUExportPrefix=leoSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"leoSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.leoSynth",
+					"JucePlugin_CFBundleIdentifier=com.leonardomannini.leosynth",
 					"JucePlugin_AAXIdentifier=com.yourcompany.leoSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
@@ -1497,7 +1497,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ leoSynth\\\"",
+					"JucePlugin_IAAName=\\\"leonardomannini:\\ leoSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1528,7 +1528,7 @@
 				MTL_HEADER_SEARCH_PATHS = "/Users/leonardomannini/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/leonardomannini/JUCE/modules /Users/leonardomannini/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-bundle -lleoSynth -weak_framework Metal -weak_framework MetalKit";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.leoSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardomannini.leosynth;
 				PRODUCT_NAME = "leoSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1583,8 +1583,8 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"leoSynth\\\"",
 					"JucePlugin_Desc=\\\"leoSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
+					"JucePlugin_Manufacturer=\\\"leonardomannini\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"www.leonardomannini.cloud\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x436e6b73",
@@ -1604,7 +1604,7 @@
 					"JucePlugin_AUExportPrefix=leoSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"leoSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.leoSynth",
+					"JucePlugin_CFBundleIdentifier=com.leonardomannini.leosynth",
 					"JucePlugin_AAXIdentifier=com.yourcompany.leoSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
@@ -1613,7 +1613,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ leoSynth\\\"",
+					"JucePlugin_IAAName=\\\"leonardomannini:\\ leoSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1639,7 +1639,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = "/Users/leonardomannini/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/leonardomannini/JUCE/modules /Users/leonardomannini/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.leoSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardomannini.leosynth;
 				PRODUCT_NAME = "leoSynth";
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
@@ -1696,8 +1696,8 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"leoSynth\\\"",
 					"JucePlugin_Desc=\\\"leoSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
+					"JucePlugin_Manufacturer=\\\"leonardomannini\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"www.leonardomannini.cloud\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x436e6b73",
@@ -1717,7 +1717,7 @@
 					"JucePlugin_AUExportPrefix=leoSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"leoSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.leoSynth",
+					"JucePlugin_CFBundleIdentifier=com.leonardomannini.leosynth",
 					"JucePlugin_AAXIdentifier=com.yourcompany.leoSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
@@ -1726,7 +1726,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ leoSynth\\\"",
+					"JucePlugin_IAAName=\\\"leonardomannini:\\ leoSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1756,7 +1756,7 @@
 				MTL_HEADER_SEARCH_PATHS = "/Users/leonardomannini/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/leonardomannini/JUCE/modules /Users/leonardomannini/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-bundle -lleoSynth -weak_framework Metal -weak_framework MetalKit";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.leoSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardomannini.leosynth;
 				PRODUCT_NAME = "leoSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";

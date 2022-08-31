@@ -18,7 +18,6 @@ osc2 (audioProcessor.apvts, "OSCWAVETYPE2", "OSCFMFREQ2", "OSCFMDEPTH2", "OSCGAI
 adsr("Amp Envelope", audioProcessor.apvts, "ATTACK", "DECAY", "SUSTAIN", "RELEASE"),
 filter(audioProcessor.apvts, "FILTERTYPE", "FILTERFREQ", "FILTERRES"),
 modAdsr("Mod Envelope", audioProcessor.apvts, "MODATTACK", "MODDECAY", "MODSUSTAIN", "MODRELEASE"),
-
 delay(audioProcessor.apvts, "DELAYTIME", "DELAYFEEDBACK"),
 oscilloscope(),
 keyboard()
