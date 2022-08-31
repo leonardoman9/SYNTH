@@ -24,7 +24,7 @@ leoSynthAudioProcessor::leoSynthAudioProcessor()
 #endif
 {
     synth.addSound (new SynthSound());
-    for(int i=0; i<5; i++){
+    for(int i=0; i<10; i++){
         synth.addVoice(new SynthVoice());
     }
 }

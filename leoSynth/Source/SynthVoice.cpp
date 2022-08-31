@@ -120,7 +120,7 @@ void SynthVoice::updateFilter (const int filterType, const float frequency, cons
     float modulator = modAdsr.getNextSample();
     for (int ch=0; ch<numChannelsToProcess; ++ch)
     {
-        filter[ch].updateParameters(filterType, frequency, resonance, modulator);
+        filter[ch].setParams(filterType, frequency, resonance);
     }
 }
 

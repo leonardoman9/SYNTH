@@ -8,18 +8,20 @@
 */
 
 #pragma once
+#include "OscData.h"
 #include <JuceHeader.h>
 
 class FilterData : public juce::dsp::StateVariableTPTFilter<float>
 {
 public:
-    void prepareToPlay(double sampleRate, int samplesPerBlock, int numChannels);
-    void process(juce::AudioBuffer<float>& buffer);
-    void updateParameters(const int filterType, const float frequency, const float resonance, const float modulator = 1.0f);
+    FilterData();
+    void prepareToPlay (double sampleRate, int samplesPerBlock, int outputChannels);
+    void setParams (const int filterType, const float filterCutoff, const float filterResonance);
+    void processNextBlock (juce::AudioBuffer<float>& buffer);
     float processNextSample (int channel, float inputValue);
-    void reset();
+    void resetAll();
     
 private:
-    juce::dsp::StateVariableTPTFilter<float> filter;
-    bool isPrepared {false};
+    void selectFilterType (const int type);
+    juce::dsp::Oscillator<float> lfo { [](float x) { return std::sin (x); }};
 };
