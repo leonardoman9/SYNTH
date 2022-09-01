@@ -26,7 +26,11 @@ public:
 private:
     using Attachment = juce::AudioProcessorValueTreeState::SliderAttachment;
 
-    void setSliderWithLabel (juce::Slider& slider, juce::Label& label, juce::AudioProcessorValueTreeState& apvts, juce::String paramId, std::unique_ptr<Attachment>& attachment);
+    void setSliderWithLabel (juce::Slider& slider,
+                             juce::Label& label,
+                             juce::AudioProcessorValueTreeState& apvts,
+                             juce::String paramId,
+                             std::unique_ptr<Attachment>& attachment);
 
     juce::Slider attackSlider;
     juce::Slider decaySlider;

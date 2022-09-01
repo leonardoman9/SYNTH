@@ -9,7 +9,7 @@
 */
 
 #include "SynthVoice.h"
-
+#include <algorithm>
 
 bool SynthVoice::canPlaySound (juce::SynthesiserSound* sound)
 {
@@ -49,6 +49,9 @@ void SynthVoice::pitchWheelMoved (int newPitchWheelValue)
 void SynthVoice::prepareToPlay (double sampleRate, int samplesPerBlock, int outputChannels)
 {
     reset();
+    adsr.setSampleRate (sampleRate);
+    modAdsr.setSampleRate(sampleRate);
+
     juce::dsp::ProcessSpec spec;
     spec.maximumBlockSize = samplesPerBlock;
     spec.sampleRate = sampleRate;
@@ -58,13 +61,10 @@ void SynthVoice::prepareToPlay (double sampleRate, int samplesPerBlock, int outp
         osc2[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
         filter[ch].prepareToPlay(sampleRate, samplesPerBlock, outputChannels);
     }
-    adsr.setSampleRate (sampleRate);
-    modAdsr.setSampleRate(sampleRate);
     gain.prepare (spec);
-    gain.setGainLinear (0.3f);
+    gain.setGainLinear (0.07f);
     isPrepared = true;
 }
-
 
 void SynthVoice::renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int startSample, int numSamples)
 {
@@ -75,6 +75,7 @@ void SynthVoice::renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int 
     
     synthBuffer.setSize (outputBuffer.getNumChannels(), numSamples, false, false, true);
     modAdsr.applyEnvelopeToBuffer(synthBuffer, 0, numSamples);
+    filterAdsrOutput = modAdsr.getNextSample();
     synthBuffer.clear();
     
     for (int ch= 0; ch < synthBuffer.getNumChannels(); ch++){
@@ -82,8 +83,7 @@ void SynthVoice::renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int 
         for (int s=0; s<synthBuffer.getNumSamples(); ++s)
         {
             buffer[s] =
-            osc[ch].processNextSample(buffer[s])+
-            osc2[ch].processNextSample(buffer[s]);
+            osc[ch].processNextSample(buffer[s])+osc2[ch].processNextSample(buffer[s]);
         }
     }
     
@@ -111,20 +111,14 @@ void SynthVoice::renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int 
     
 }
 
-void SynthVoice::updateFilter (const int filterType, const float frequency, const float resonance)
+void SynthVoice::updateModParams (const int filterType, const float frequency, const float resonance)
 {
-    float modulator = modAdsr.getNextSample();
+    auto cutoff = filterAdsrOutput + frequency;
     for (int ch=0; ch<numChannelsToProcess; ++ch)
     {
-        filter[ch].setParams(filterType, frequency, resonance);
+        filter[ch].setParams(filterType, cutoff, resonance);
     }
 }
-
-void SynthVoice::updateModAdsr (const float attack, const float decay, const float sustain, const float release)
-{
-    modAdsr.updateADSR(attack, decay, sustain, release);
-}
-
 
 void SynthVoice::reset()
 {
