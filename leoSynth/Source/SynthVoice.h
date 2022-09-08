@@ -34,7 +34,8 @@ public:
     AdsrData& getAdsr() {return adsr;}
     AdsrData& getModAdsr() {return modAdsr;}
     float getFilterAdsrOutput() {return filterAdsrOutput;}
-    void updateModParams (const int filterType, const float frequency, const float resonance);
+    void updateFilter (const int filterType, const float frequency, const float resonance);
+    void updateModParams (const int filterType, const float frequency, const float resonance, const float modulator);
 
    
     

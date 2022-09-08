@@ -220,7 +220,7 @@ void leoSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
             }
             adsr.updateADSR(attack.load(), decay.load(), sustain.load(), release.load());
             filterAdsr.updateADSR(modAttack.load(), modDecay.load(), modSustain.load(), modRelease.load());
-            voice->updateModParams(filterType, cutoff, resonance);
+            voice->updateFilter(filterType, cutoff, resonance);
            
             
         }

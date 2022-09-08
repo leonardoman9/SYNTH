@@ -51,7 +51,6 @@ void SynthVoice::prepareToPlay (double sampleRate, int samplesPerBlock, int outp
     reset();
     adsr.setSampleRate (sampleRate);
     modAdsr.setSampleRate(sampleRate);
-
     juce::dsp::ProcessSpec spec;
     spec.maximumBlockSize = samplesPerBlock;
     spec.sampleRate = sampleRate;
@@ -90,7 +89,7 @@ void SynthVoice::renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int 
     juce::dsp::AudioBlock<float> audioBlock { synthBuffer };
     gain.process(juce::dsp::ProcessContextReplacing<float> (audioBlock));
     adsr.applyEnvelopeToBuffer(synthBuffer, 0, synthBuffer.getNumSamples());
-    
+
     for (int ch = 0; ch< synthBuffer.getNumChannels(); ++ch)
     {
         auto* buffer = synthBuffer.getWritePointer(ch, 0);
@@ -110,13 +109,17 @@ void SynthVoice::renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int 
     
     
 }
-
-void SynthVoice::updateModParams (const int filterType, const float frequency, const float resonance)
+void SynthVoice::updateFilter (const int filterType, const float frequency, const float resonance)
+{
+    float modulator = modAdsr.getNextSample();
+    updateModParams(filterType, frequency, resonance, modulator);
+}
+void SynthVoice::updateModParams (const int filterType, const float frequency, const float resonance, const float modulator)
 {
     auto cutoff = filterAdsrOutput + frequency;
     for (int ch=0; ch<numChannelsToProcess; ++ch)
     {
-        filter[ch].setParams(filterType, cutoff, resonance);
+        filter[ch].setParams(filterType, cutoff, resonance, modulator);
     }
 }
 

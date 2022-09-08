@@ -13,10 +13,13 @@ FilterData::FilterData()
     setType (juce::dsp::StateVariableTPTFilterType::lowpass);
 }
 
-void FilterData::setParams (const int filterType, const float filterCutoff, const float filterResonance)
+void FilterData::setParams (const int filterType, const float filterCutoff, const float filterResonance, const float modulator)
 {
     selectFilterType (filterType);
-    setCutoffFrequency (filterCutoff);
+    float modFreq = filterCutoff * modulator;
+    modFreq = std::fmin(std::fmax(modFreq, 20.0f), 20000.0f);
+       
+    setCutoffFrequency (modFreq);
     setResonance (filterResonance);
 }
 

@@ -24,7 +24,7 @@ keyboard()
 
 {
    
-    setSize (1280, 650);
+    setSize (620, 650);
     addAndMakeVisible (osc);
     addAndMakeVisible (adsr);
     addAndMakeVisible(filter);
@@ -39,7 +39,7 @@ leoSynthAudioProcessorEditor::~leoSynthAudioProcessorEditor()
 //==============================================================================
 void leoSynthAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    g.fillAll (juce::Colours::black);
+    g.fillAll (juce::Colours::red);
 }
 
 void leoSynthAudioProcessorEditor::resized()
@@ -55,10 +55,9 @@ void leoSynthAudioProcessorEditor::resized()
 
     osc.setBounds (paddingX, paddingY, width, oscHeight);
     osc2.setBounds(paddingX, osc.getBottom(), width, oscHeight);
-    adsr.setBounds (osc.getRight(), paddingY2, width, height);
-    filter.setBounds(adsr.getRight(), adsr.getY(), width, height);
-    modAdsr.setBounds(filter.getRight(), filter.getY(), width, height);
-
+    adsr.setBounds (osc.getRight(), paddingY, width, height);
+    filter.setBounds(osc.getRight(), adsr.getBottom(), width, height);
+    modAdsr.setBounds(osc2.getRight(), filter.getBottom(), width, height);
     
 }
 
