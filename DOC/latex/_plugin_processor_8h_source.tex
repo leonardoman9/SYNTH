@@ -1,0 +1,72 @@
+\hypertarget{_plugin_processor_8h_source}{}\doxysection{Plugin\+Processor.\+h}
+\label{_plugin_processor_8h_source}\index{/Users/leonardomannini/SYNTH/leoSynth/Source/PluginProcessor.h@{/Users/leonardomannini/SYNTH/leoSynth/Source/PluginProcessor.h}}
+\mbox{\hyperlink{_plugin_processor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  ==============================================================================}}
+\DoxyCodeLine{3 \textcolor{comment}{}}
+\DoxyCodeLine{4 \textcolor{comment}{    This file contains the basic framework code for a JUCE plugin processor.}}
+\DoxyCodeLine{5 \textcolor{comment}{}}
+\DoxyCodeLine{6 \textcolor{comment}{  ==============================================================================}}
+\DoxyCodeLine{7 \textcolor{comment}{*/}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <JuceHeader.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_synth_voice_8h}{SynthVoice.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_synth_sound_8h}{SynthSound.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}Data/FilterData.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{19 \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{classleo_synth_audio_processor}{leoSynthAudioProcessor}}  : \textcolor{keyword}{public} juce::AudioProcessor}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{23     \mbox{\hyperlink{classleo_synth_audio_processor_a0da7413a2a85d130435ac4098b342ba5}{leoSynthAudioProcessor}}();}
+\DoxyCodeLine{24     \mbox{\hyperlink{classleo_synth_audio_processor_a35feb2eb2a1dba4fc220a6f9b442ff82}{\string~leoSynthAudioProcessor}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{classleo_synth_audio_processor_af006164e87bae6d7b9d328804cb74de9}{prepareToPlay}} (\textcolor{keywordtype}{double} sampleRate, \textcolor{keywordtype}{int} samplesPerBlock) \textcolor{keyword}{override};}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{classleo_synth_audio_processor_a53e40516125b19d9b168afacb83a3ea5}{releaseResources}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{   \#ifndef JucePlugin\_PreferredChannelConfigurations}}
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classleo_synth_audio_processor_af57a4dc4b7e93c4011b242231b932563}{isBusesLayoutSupported}} (\textcolor{keyword}{const} BusesLayout\& layouts) \textcolor{keyword}{const override};}
+\DoxyCodeLine{32 \textcolor{preprocessor}{   \#endif}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{classleo_synth_audio_processor_a0178b5be189d2d7293ed64151e19b5ef}{processBlock}} (juce::AudioBuffer<float>\&, juce::MidiBuffer\&) \textcolor{keyword}{override};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{37     juce::AudioProcessorEditor* \mbox{\hyperlink{classleo_synth_audio_processor_aeb50bee6af289111adf766945ca0162c}{createEditor}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classleo_synth_audio_processor_a113939b11792a68db046d4ccb3844c3f}{hasEditor}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{41     \textcolor{keyword}{const} juce::String \mbox{\hyperlink{classleo_synth_audio_processor_a06f30d192441b3235bc8996d3eaa105b}{getName}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classleo_synth_audio_processor_a790910adc2bb98155804d4518303eb6b}{acceptsMidi}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classleo_synth_audio_processor_ae2df405221df1956e4d53b92626debca}{producesMidi}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classleo_synth_audio_processor_aa50b5ba0841cf0ffd52bdc1ab724bf13}{isMidiEffect}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{46     \textcolor{keywordtype}{double} \mbox{\hyperlink{classleo_synth_audio_processor_adbc9c4ef66a618201d2b38606c95399c}{getTailLengthSeconds}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{49     \textcolor{keywordtype}{int} \mbox{\hyperlink{classleo_synth_audio_processor_a5ee3c95da8dcb50091d68bf6221a85be}{getNumPrograms}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{50     \textcolor{keywordtype}{int} \mbox{\hyperlink{classleo_synth_audio_processor_addbb1e081791d498f68e69e6da117bf2}{getCurrentProgram}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{classleo_synth_audio_processor_a0d19872fdc334c493c66521052f29822}{setCurrentProgram}} (\textcolor{keywordtype}{int} index) \textcolor{keyword}{override};}
+\DoxyCodeLine{52     \textcolor{keyword}{const} juce::String \mbox{\hyperlink{classleo_synth_audio_processor_a7e83db332d7318f425d323baf6f3cb94}{getProgramName}} (\textcolor{keywordtype}{int} index) \textcolor{keyword}{override};}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{classleo_synth_audio_processor_a809d1af07147b73bf055671c7cbfd3bd}{changeProgramName}} (\textcolor{keywordtype}{int} index, \textcolor{keyword}{const} juce::String\& newName) \textcolor{keyword}{override};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{classleo_synth_audio_processor_a46805c2074a35116caf5a776b1543e6e}{getStateInformation}} (juce::MemoryBlock\& destData) \textcolor{keyword}{override};}
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{classleo_synth_audio_processor_a84b1ef0052a5d385c2f766c3dd492162}{setStateInformation}} (\textcolor{keyword}{const} \textcolor{keywordtype}{void}* data, \textcolor{keywordtype}{int} sizeInBytes) \textcolor{keyword}{override};}
+\DoxyCodeLine{58     }
+\DoxyCodeLine{59     juce::AudioProcessorValueTreeState \mbox{\hyperlink{classleo_synth_audio_processor_a218357435646a9379d68a0080f1d6663}{apvts}};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{private}:}
+\DoxyCodeLine{62     juce::Synthesiser synth;}
+\DoxyCodeLine{63     juce::AudioProcessorValueTreeState::ParameterLayout createParams();}
+\DoxyCodeLine{64     juce::AudioBuffer<float> mDelayBuffer;}
+\DoxyCodeLine{65    }
+\DoxyCodeLine{66     \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{67     JUCE\_DECLARE\_NON\_COPYABLE\_WITH\_LEAK\_DETECTOR (\mbox{\hyperlink{classleo_synth_audio_processor}{leoSynthAudioProcessor}})}
+\DoxyCodeLine{68 \};}
+
+\end{DoxyCode}

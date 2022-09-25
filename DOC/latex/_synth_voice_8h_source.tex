@@ -1,0 +1,59 @@
+\hypertarget{_synth_voice_8h_source}{}\doxysection{Synth\+Voice.\+h}
+\label{_synth_voice_8h_source}\index{/Users/leonardomannini/SYNTH/leoSynth/Source/SynthVoice.h@{/Users/leonardomannini/SYNTH/leoSynth/Source/SynthVoice.h}}
+\mbox{\hyperlink{_synth_voice_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  ==============================================================================}}
+\DoxyCodeLine{3 \textcolor{comment}{}}
+\DoxyCodeLine{4 \textcolor{comment}{    SynthVoice.h}}
+\DoxyCodeLine{5 \textcolor{comment}{    Author:  Leonardo Mannini}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{  ==============================================================================}}
+\DoxyCodeLine{8 \textcolor{comment}{*/}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <JuceHeader.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_synth_sound_8h}{SynthSound.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}Data/OscData.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}Data/AdsrData.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}Data/FilterData.h"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_synth_voice}{SynthVoice}} : \textcolor{keyword}{public} juce::SynthesiserVoice}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_synth_voice_af0be52a279f1b990f81c4fc4a7844ad8}{canPlaySound}} (juce::SynthesiserSound* sound) \textcolor{keyword}{override};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_synth_voice_a7fe4dd0d3a4a477cae110e33f3bdd507}{startNote}} (\textcolor{keywordtype}{int} midiNoteNumber, \textcolor{keywordtype}{float} velocity, juce::SynthesiserSound *sound, \textcolor{keywordtype}{int} currentPitchWheelPosition) \textcolor{keyword}{override};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_synth_voice_a7376d03590d9cb0b7872987afcf367a3}{stopNote}} (\textcolor{keywordtype}{float} velocity, \textcolor{keywordtype}{bool} allowTailOff) \textcolor{keyword}{override};}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_synth_voice_ac03786e3f9164f2a19025e096f53adb7}{controllerMoved}} (\textcolor{keywordtype}{int} controllerNumber, \textcolor{keywordtype}{int} newControllerValue) \textcolor{keyword}{override};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_synth_voice_a1347e0c249222296cb6ab431efad2d58}{pitchWheelMoved}} (\textcolor{keywordtype}{int} newPitchWheelValue) \textcolor{keyword}{override};}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_synth_voice_a49e46287dd39f52689765bedb670cdd1}{prepareToPlay}} (\textcolor{keywordtype}{double} sampleRate, \textcolor{keywordtype}{int} samplesPerBlock, \textcolor{keywordtype}{int} outputChannels);}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_synth_voice_a2cd162555fa015526c1a13578f31ce55}{renderNextBlock}} (juce::AudioBuffer< float > \&outputBuffer, \textcolor{keywordtype}{int} startSample, \textcolor{keywordtype}{int} numSamples) \textcolor{keyword}{override};}
+\DoxyCodeLine{28     }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_synth_voice_a7fb38009b7d2360c74f5fe1bb5ca8b63}{reset}}();}
+\DoxyCodeLine{30     }
+\DoxyCodeLine{31     std::array<OscData, 2>\& \mbox{\hyperlink{class_synth_voice_abf228869110778359d536c648d8de330}{getOscillator1}}() \{ \textcolor{keywordflow}{return} osc; \}}
+\DoxyCodeLine{32     std::array<OscData, 2>\& \mbox{\hyperlink{class_synth_voice_ad723bad0796f45b4efa903fe2dda5b11}{getOscillator2}}() \{ \textcolor{keywordflow}{return} osc2; \}}
+\DoxyCodeLine{33     }
+\DoxyCodeLine{34     AdsrData\& \mbox{\hyperlink{class_synth_voice_a74dbe1264c5cdd1b913ee452dbad199e}{getAdsr}}() \{\textcolor{keywordflow}{return} adsr;\}}
+\DoxyCodeLine{35     AdsrData\& \mbox{\hyperlink{class_synth_voice_a7d101f901e25cb0e0657447ae9104203}{getModAdsr}}() \{\textcolor{keywordflow}{return} modAdsr;\}}
+\DoxyCodeLine{36     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_synth_voice_a0a20ab55c57879e57f0c934d04071048}{getFilterAdsrOutput}}() \{\textcolor{keywordflow}{return} filterAdsrOutput;\}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_synth_voice_ae3f1cf652acd4410f472319bf9b5a7dc}{updateFilter}} (\textcolor{keyword}{const} \textcolor{keywordtype}{int} filterType, \textcolor{keyword}{const} \textcolor{keywordtype}{float} frequency, \textcolor{keyword}{const} \textcolor{keywordtype}{float} resonance);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_synth_voice_abc23f71af9a4a4f2457a3f03a922cfd9}{updateModParams}} (\textcolor{keyword}{const} \textcolor{keywordtype}{int} filterType, \textcolor{keyword}{const} \textcolor{keywordtype}{float} frequency, \textcolor{keyword}{const} \textcolor{keywordtype}{float} resonance, \textcolor{keyword}{const} \textcolor{keywordtype}{float} modulator);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40    }
+\DoxyCodeLine{41     }
+\DoxyCodeLine{42 \textcolor{keyword}{private}:}
+\DoxyCodeLine{43     juce::AudioBuffer<float> synthBuffer;}
+\DoxyCodeLine{44     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} numChannelsToProcess \{ 2 \};}
+\DoxyCodeLine{45     std::array<OscData, numChannelsToProcess> osc;}
+\DoxyCodeLine{46     std::array<OscData, numChannelsToProcess> osc2;}
+\DoxyCodeLine{47     std::array<FilterData, numChannelsToProcess> filter;}
+\DoxyCodeLine{48     AdsrData adsr;}
+\DoxyCodeLine{49     AdsrData modAdsr;}
+\DoxyCodeLine{50     \textcolor{keywordtype}{float} filterAdsrOutput \{0.0f\};}
+\DoxyCodeLine{51     juce::dsp::Gain<float> gain;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{bool} isPrepared \{ \textcolor{keyword}{false} \};}
+\DoxyCodeLine{53 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,201 @@
+\hypertarget{classleo_synth_audio_processor}{}\doxysection{leo\+Synth\+Audio\+Processor Class Reference}
+\label{classleo_synth_audio_processor}\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+
+
+{\ttfamily \#include $<$Plugin\+Processor.\+h$>$}
+
+Inheritance diagram for leo\+Synth\+Audio\+Processor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classleo_synth_audio_processor}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classleo_synth_audio_processor_a0da7413a2a85d130435ac4098b342ba5}{leo\+Synth\+Audio\+Processor}} ()
+\item 
+\mbox{\hyperlink{classleo_synth_audio_processor_a35feb2eb2a1dba4fc220a6f9b442ff82}{$\sim$leo\+Synth\+Audio\+Processor}} () override
+\item 
+void \mbox{\hyperlink{classleo_synth_audio_processor_af006164e87bae6d7b9d328804cb74de9}{prepare\+To\+Play}} (double sample\+Rate, int samples\+Per\+Block) override
+\item 
+void \mbox{\hyperlink{classleo_synth_audio_processor_a53e40516125b19d9b168afacb83a3ea5}{release\+Resources}} () override
+\item 
+bool \mbox{\hyperlink{classleo_synth_audio_processor_af57a4dc4b7e93c4011b242231b932563}{is\+Buses\+Layout\+Supported}} (const Buses\+Layout \&layouts) const override
+\item 
+void \mbox{\hyperlink{classleo_synth_audio_processor_a0178b5be189d2d7293ed64151e19b5ef}{process\+Block}} (juce\+::\+Audio\+Buffer$<$ float $>$ \&, juce\+::\+Midi\+Buffer \&) override
+\item 
+juce\+::\+Audio\+Processor\+Editor $\ast$ \mbox{\hyperlink{classleo_synth_audio_processor_aeb50bee6af289111adf766945ca0162c}{create\+Editor}} () override
+\item 
+bool \mbox{\hyperlink{classleo_synth_audio_processor_a113939b11792a68db046d4ccb3844c3f}{has\+Editor}} () const override
+\item 
+const juce\+::\+String \mbox{\hyperlink{classleo_synth_audio_processor_a06f30d192441b3235bc8996d3eaa105b}{get\+Name}} () const override
+\item 
+bool \mbox{\hyperlink{classleo_synth_audio_processor_a790910adc2bb98155804d4518303eb6b}{accepts\+Midi}} () const override
+\item 
+bool \mbox{\hyperlink{classleo_synth_audio_processor_ae2df405221df1956e4d53b92626debca}{produces\+Midi}} () const override
+\item 
+bool \mbox{\hyperlink{classleo_synth_audio_processor_aa50b5ba0841cf0ffd52bdc1ab724bf13}{is\+Midi\+Effect}} () const override
+\item 
+double \mbox{\hyperlink{classleo_synth_audio_processor_adbc9c4ef66a618201d2b38606c95399c}{get\+Tail\+Length\+Seconds}} () const override
+\item 
+int \mbox{\hyperlink{classleo_synth_audio_processor_a5ee3c95da8dcb50091d68bf6221a85be}{get\+Num\+Programs}} () override
+\item 
+int \mbox{\hyperlink{classleo_synth_audio_processor_addbb1e081791d498f68e69e6da117bf2}{get\+Current\+Program}} () override
+\item 
+void \mbox{\hyperlink{classleo_synth_audio_processor_a0d19872fdc334c493c66521052f29822}{set\+Current\+Program}} (int index) override
+\item 
+const juce\+::\+String \mbox{\hyperlink{classleo_synth_audio_processor_a7e83db332d7318f425d323baf6f3cb94}{get\+Program\+Name}} (int index) override
+\item 
+void \mbox{\hyperlink{classleo_synth_audio_processor_a809d1af07147b73bf055671c7cbfd3bd}{change\+Program\+Name}} (int index, const juce\+::\+String \&new\+Name) override
+\item 
+void \mbox{\hyperlink{classleo_synth_audio_processor_a46805c2074a35116caf5a776b1543e6e}{get\+State\+Information}} (juce\+::\+Memory\+Block \&dest\+Data) override
+\item 
+void \mbox{\hyperlink{classleo_synth_audio_processor_a84b1ef0052a5d385c2f766c3dd492162}{set\+State\+Information}} (const void $\ast$data, int size\+In\+Bytes) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+juce\+::\+Audio\+Processor\+Value\+Tree\+State \mbox{\hyperlink{classleo_synth_audio_processor_a218357435646a9379d68a0080f1d6663}{apvts}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classleo_synth_audio_processor_a0da7413a2a85d130435ac4098b342ba5}\label{classleo_synth_audio_processor_a0da7413a2a85d130435ac4098b342ba5}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{leoSynthAudioProcessor()}{leoSynthAudioProcessor()}}
+{\footnotesize\ttfamily leo\+Synth\+Audio\+Processor\+::leo\+Synth\+Audio\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a35feb2eb2a1dba4fc220a6f9b442ff82}\label{classleo_synth_audio_processor_a35feb2eb2a1dba4fc220a6f9b442ff82}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!````~leoSynthAudioProcessor@{$\sim$leoSynthAudioProcessor}}
+\index{````~leoSynthAudioProcessor@{$\sim$leoSynthAudioProcessor}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{$\sim$leoSynthAudioProcessor()}{~leoSynthAudioProcessor()}}
+{\footnotesize\ttfamily leo\+Synth\+Audio\+Processor\+::$\sim$leo\+Synth\+Audio\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classleo_synth_audio_processor_a790910adc2bb98155804d4518303eb6b}\label{classleo_synth_audio_processor_a790910adc2bb98155804d4518303eb6b}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!acceptsMidi@{acceptsMidi}}
+\index{acceptsMidi@{acceptsMidi}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{acceptsMidi()}{acceptsMidi()}}
+{\footnotesize\ttfamily bool leo\+Synth\+Audio\+Processor\+::accepts\+Midi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a809d1af07147b73bf055671c7cbfd3bd}\label{classleo_synth_audio_processor_a809d1af07147b73bf055671c7cbfd3bd}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!changeProgramName@{changeProgramName}}
+\index{changeProgramName@{changeProgramName}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{changeProgramName()}{changeProgramName()}}
+{\footnotesize\ttfamily void leo\+Synth\+Audio\+Processor\+::change\+Program\+Name (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{const juce\+::\+String \&}]{new\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_aeb50bee6af289111adf766945ca0162c}\label{classleo_synth_audio_processor_aeb50bee6af289111adf766945ca0162c}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!createEditor@{createEditor}}
+\index{createEditor@{createEditor}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{createEditor()}{createEditor()}}
+{\footnotesize\ttfamily juce\+::\+Audio\+Processor\+Editor $\ast$ leo\+Synth\+Audio\+Processor\+::create\+Editor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_addbb1e081791d498f68e69e6da117bf2}\label{classleo_synth_audio_processor_addbb1e081791d498f68e69e6da117bf2}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!getCurrentProgram@{getCurrentProgram}}
+\index{getCurrentProgram@{getCurrentProgram}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{getCurrentProgram()}{getCurrentProgram()}}
+{\footnotesize\ttfamily int leo\+Synth\+Audio\+Processor\+::get\+Current\+Program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a06f30d192441b3235bc8996d3eaa105b}\label{classleo_synth_audio_processor_a06f30d192441b3235bc8996d3eaa105b}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!getName@{getName}}
+\index{getName@{getName}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const juce\+::\+String leo\+Synth\+Audio\+Processor\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a5ee3c95da8dcb50091d68bf6221a85be}\label{classleo_synth_audio_processor_a5ee3c95da8dcb50091d68bf6221a85be}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!getNumPrograms@{getNumPrograms}}
+\index{getNumPrograms@{getNumPrograms}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{getNumPrograms()}{getNumPrograms()}}
+{\footnotesize\ttfamily int leo\+Synth\+Audio\+Processor\+::get\+Num\+Programs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a7e83db332d7318f425d323baf6f3cb94}\label{classleo_synth_audio_processor_a7e83db332d7318f425d323baf6f3cb94}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!getProgramName@{getProgramName}}
+\index{getProgramName@{getProgramName}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{getProgramName()}{getProgramName()}}
+{\footnotesize\ttfamily const juce\+::\+String leo\+Synth\+Audio\+Processor\+::get\+Program\+Name (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a46805c2074a35116caf5a776b1543e6e}\label{classleo_synth_audio_processor_a46805c2074a35116caf5a776b1543e6e}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!getStateInformation@{getStateInformation}}
+\index{getStateInformation@{getStateInformation}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{getStateInformation()}{getStateInformation()}}
+{\footnotesize\ttfamily void leo\+Synth\+Audio\+Processor\+::get\+State\+Information (\begin{DoxyParamCaption}\item[{juce\+::\+Memory\+Block \&}]{dest\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_adbc9c4ef66a618201d2b38606c95399c}\label{classleo_synth_audio_processor_adbc9c4ef66a618201d2b38606c95399c}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!getTailLengthSeconds@{getTailLengthSeconds}}
+\index{getTailLengthSeconds@{getTailLengthSeconds}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{getTailLengthSeconds()}{getTailLengthSeconds()}}
+{\footnotesize\ttfamily double leo\+Synth\+Audio\+Processor\+::get\+Tail\+Length\+Seconds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a113939b11792a68db046d4ccb3844c3f}\label{classleo_synth_audio_processor_a113939b11792a68db046d4ccb3844c3f}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!hasEditor@{hasEditor}}
+\index{hasEditor@{hasEditor}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{hasEditor()}{hasEditor()}}
+{\footnotesize\ttfamily bool leo\+Synth\+Audio\+Processor\+::has\+Editor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_af57a4dc4b7e93c4011b242231b932563}\label{classleo_synth_audio_processor_af57a4dc4b7e93c4011b242231b932563}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!isBusesLayoutSupported@{isBusesLayoutSupported}}
+\index{isBusesLayoutSupported@{isBusesLayoutSupported}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{isBusesLayoutSupported()}{isBusesLayoutSupported()}}
+{\footnotesize\ttfamily bool leo\+Synth\+Audio\+Processor\+::is\+Buses\+Layout\+Supported (\begin{DoxyParamCaption}\item[{const Buses\+Layout \&}]{layouts }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_aa50b5ba0841cf0ffd52bdc1ab724bf13}\label{classleo_synth_audio_processor_aa50b5ba0841cf0ffd52bdc1ab724bf13}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!isMidiEffect@{isMidiEffect}}
+\index{isMidiEffect@{isMidiEffect}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{isMidiEffect()}{isMidiEffect()}}
+{\footnotesize\ttfamily bool leo\+Synth\+Audio\+Processor\+::is\+Midi\+Effect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_af006164e87bae6d7b9d328804cb74de9}\label{classleo_synth_audio_processor_af006164e87bae6d7b9d328804cb74de9}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!prepareToPlay@{prepareToPlay}}
+\index{prepareToPlay@{prepareToPlay}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{prepareToPlay()}{prepareToPlay()}}
+{\footnotesize\ttfamily void leo\+Synth\+Audio\+Processor\+::prepare\+To\+Play (\begin{DoxyParamCaption}\item[{double}]{sample\+Rate,  }\item[{int}]{samples\+Per\+Block }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a0178b5be189d2d7293ed64151e19b5ef}\label{classleo_synth_audio_processor_a0178b5be189d2d7293ed64151e19b5ef}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!processBlock@{processBlock}}
+\index{processBlock@{processBlock}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{processBlock()}{processBlock()}}
+{\footnotesize\ttfamily void leo\+Synth\+Audio\+Processor\+::process\+Block (\begin{DoxyParamCaption}\item[{juce\+::\+Audio\+Buffer$<$ float $>$ \&}]{buffer,  }\item[{juce\+::\+Midi\+Buffer \&}]{midi\+Messages }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_ae2df405221df1956e4d53b92626debca}\label{classleo_synth_audio_processor_ae2df405221df1956e4d53b92626debca}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!producesMidi@{producesMidi}}
+\index{producesMidi@{producesMidi}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{producesMidi()}{producesMidi()}}
+{\footnotesize\ttfamily bool leo\+Synth\+Audio\+Processor\+::produces\+Midi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a53e40516125b19d9b168afacb83a3ea5}\label{classleo_synth_audio_processor_a53e40516125b19d9b168afacb83a3ea5}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!releaseResources@{releaseResources}}
+\index{releaseResources@{releaseResources}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{releaseResources()}{releaseResources()}}
+{\footnotesize\ttfamily void leo\+Synth\+Audio\+Processor\+::release\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a0d19872fdc334c493c66521052f29822}\label{classleo_synth_audio_processor_a0d19872fdc334c493c66521052f29822}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!setCurrentProgram@{setCurrentProgram}}
+\index{setCurrentProgram@{setCurrentProgram}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{setCurrentProgram()}{setCurrentProgram()}}
+{\footnotesize\ttfamily void leo\+Synth\+Audio\+Processor\+::set\+Current\+Program (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classleo_synth_audio_processor_a84b1ef0052a5d385c2f766c3dd492162}\label{classleo_synth_audio_processor_a84b1ef0052a5d385c2f766c3dd492162}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!setStateInformation@{setStateInformation}}
+\index{setStateInformation@{setStateInformation}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{setStateInformation()}{setStateInformation()}}
+{\footnotesize\ttfamily void leo\+Synth\+Audio\+Processor\+::set\+State\+Information (\begin{DoxyParamCaption}\item[{const void $\ast$}]{data,  }\item[{int}]{size\+In\+Bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classleo_synth_audio_processor_a218357435646a9379d68a0080f1d6663}\label{classleo_synth_audio_processor_a218357435646a9379d68a0080f1d6663}} 
+\index{leoSynthAudioProcessor@{leoSynthAudioProcessor}!apvts@{apvts}}
+\index{apvts@{apvts}!leoSynthAudioProcessor@{leoSynthAudioProcessor}}
+\doxysubsubsection{\texorpdfstring{apvts}{apvts}}
+{\footnotesize\ttfamily juce\+::\+Audio\+Processor\+Value\+Tree\+State leo\+Synth\+Audio\+Processor\+::apvts}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/leonardomannini/\+SYNTH/leo\+Synth/\+Source/\mbox{\hyperlink{_plugin_processor_8h}{Plugin\+Processor.\+h}}\item 
+/\+Users/leonardomannini/\+SYNTH/leo\+Synth/\+Source/\mbox{\hyperlink{_plugin_processor_8cpp}{Plugin\+Processor.\+cpp}}\end{DoxyCompactItemize}

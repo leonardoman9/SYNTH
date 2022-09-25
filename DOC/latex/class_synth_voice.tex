@@ -1,0 +1,144 @@
+\hypertarget{class_synth_voice}{}\doxysection{Synth\+Voice Class Reference}
+\label{class_synth_voice}\index{SynthVoice@{SynthVoice}}
+
+
+{\ttfamily \#include $<$Synth\+Voice.\+h$>$}
+
+Inheritance diagram for Synth\+Voice\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_synth_voice}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_synth_voice_af0be52a279f1b990f81c4fc4a7844ad8}{can\+Play\+Sound}} (juce\+::\+Synthesiser\+Sound $\ast$sound) override
+\item 
+void \mbox{\hyperlink{class_synth_voice_a7fe4dd0d3a4a477cae110e33f3bdd507}{start\+Note}} (int midi\+Note\+Number, float velocity, juce\+::\+Synthesiser\+Sound $\ast$sound, int current\+Pitch\+Wheel\+Position) override
+\item 
+void \mbox{\hyperlink{class_synth_voice_a7376d03590d9cb0b7872987afcf367a3}{stop\+Note}} (float velocity, bool allow\+Tail\+Off) override
+\item 
+void \mbox{\hyperlink{class_synth_voice_ac03786e3f9164f2a19025e096f53adb7}{controller\+Moved}} (int controller\+Number, int new\+Controller\+Value) override
+\item 
+void \mbox{\hyperlink{class_synth_voice_a1347e0c249222296cb6ab431efad2d58}{pitch\+Wheel\+Moved}} (int new\+Pitch\+Wheel\+Value) override
+\item 
+void \mbox{\hyperlink{class_synth_voice_a49e46287dd39f52689765bedb670cdd1}{prepare\+To\+Play}} (double sample\+Rate, int samples\+Per\+Block, int output\+Channels)
+\item 
+void \mbox{\hyperlink{class_synth_voice_a2cd162555fa015526c1a13578f31ce55}{render\+Next\+Block}} (juce\+::\+Audio\+Buffer$<$ float $>$ \&output\+Buffer, int start\+Sample, int num\+Samples) override
+\item 
+void \mbox{\hyperlink{class_synth_voice_a7fb38009b7d2360c74f5fe1bb5ca8b63}{reset}} ()
+\item 
+std\+::array$<$ Osc\+Data, 2 $>$ \& \mbox{\hyperlink{class_synth_voice_abf228869110778359d536c648d8de330}{get\+Oscillator1}} ()
+\item 
+std\+::array$<$ Osc\+Data, 2 $>$ \& \mbox{\hyperlink{class_synth_voice_ad723bad0796f45b4efa903fe2dda5b11}{get\+Oscillator2}} ()
+\item 
+Adsr\+Data \& \mbox{\hyperlink{class_synth_voice_a74dbe1264c5cdd1b913ee452dbad199e}{get\+Adsr}} ()
+\item 
+Adsr\+Data \& \mbox{\hyperlink{class_synth_voice_a7d101f901e25cb0e0657447ae9104203}{get\+Mod\+Adsr}} ()
+\item 
+float \mbox{\hyperlink{class_synth_voice_a0a20ab55c57879e57f0c934d04071048}{get\+Filter\+Adsr\+Output}} ()
+\item 
+void \mbox{\hyperlink{class_synth_voice_ae3f1cf652acd4410f472319bf9b5a7dc}{update\+Filter}} (const int filter\+Type, const float frequency, const float resonance)
+\item 
+void \mbox{\hyperlink{class_synth_voice_abc23f71af9a4a4f2457a3f03a922cfd9}{update\+Mod\+Params}} (const int filter\+Type, const float frequency, const float resonance, const float modulator)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_synth_voice_af0be52a279f1b990f81c4fc4a7844ad8}\label{class_synth_voice_af0be52a279f1b990f81c4fc4a7844ad8}} 
+\index{SynthVoice@{SynthVoice}!canPlaySound@{canPlaySound}}
+\index{canPlaySound@{canPlaySound}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{canPlaySound()}{canPlaySound()}}
+{\footnotesize\ttfamily bool Synth\+Voice\+::can\+Play\+Sound (\begin{DoxyParamCaption}\item[{juce\+::\+Synthesiser\+Sound $\ast$}]{sound }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{class_synth_voice_ac03786e3f9164f2a19025e096f53adb7}\label{class_synth_voice_ac03786e3f9164f2a19025e096f53adb7}} 
+\index{SynthVoice@{SynthVoice}!controllerMoved@{controllerMoved}}
+\index{controllerMoved@{controllerMoved}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{controllerMoved()}{controllerMoved()}}
+{\footnotesize\ttfamily void Synth\+Voice\+::controller\+Moved (\begin{DoxyParamCaption}\item[{int}]{controller\+Number,  }\item[{int}]{new\+Controller\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{class_synth_voice_a74dbe1264c5cdd1b913ee452dbad199e}\label{class_synth_voice_a74dbe1264c5cdd1b913ee452dbad199e}} 
+\index{SynthVoice@{SynthVoice}!getAdsr@{getAdsr}}
+\index{getAdsr@{getAdsr}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{getAdsr()}{getAdsr()}}
+{\footnotesize\ttfamily Adsr\+Data \& Synth\+Voice\+::get\+Adsr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_synth_voice_a0a20ab55c57879e57f0c934d04071048}\label{class_synth_voice_a0a20ab55c57879e57f0c934d04071048}} 
+\index{SynthVoice@{SynthVoice}!getFilterAdsrOutput@{getFilterAdsrOutput}}
+\index{getFilterAdsrOutput@{getFilterAdsrOutput}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{getFilterAdsrOutput()}{getFilterAdsrOutput()}}
+{\footnotesize\ttfamily float Synth\+Voice\+::get\+Filter\+Adsr\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_synth_voice_a7d101f901e25cb0e0657447ae9104203}\label{class_synth_voice_a7d101f901e25cb0e0657447ae9104203}} 
+\index{SynthVoice@{SynthVoice}!getModAdsr@{getModAdsr}}
+\index{getModAdsr@{getModAdsr}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{getModAdsr()}{getModAdsr()}}
+{\footnotesize\ttfamily Adsr\+Data \& Synth\+Voice\+::get\+Mod\+Adsr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_synth_voice_abf228869110778359d536c648d8de330}\label{class_synth_voice_abf228869110778359d536c648d8de330}} 
+\index{SynthVoice@{SynthVoice}!getOscillator1@{getOscillator1}}
+\index{getOscillator1@{getOscillator1}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{getOscillator1()}{getOscillator1()}}
+{\footnotesize\ttfamily std\+::array$<$ Osc\+Data, 2 $>$ \& Synth\+Voice\+::get\+Oscillator1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_synth_voice_ad723bad0796f45b4efa903fe2dda5b11}\label{class_synth_voice_ad723bad0796f45b4efa903fe2dda5b11}} 
+\index{SynthVoice@{SynthVoice}!getOscillator2@{getOscillator2}}
+\index{getOscillator2@{getOscillator2}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{getOscillator2()}{getOscillator2()}}
+{\footnotesize\ttfamily std\+::array$<$ Osc\+Data, 2 $>$ \& Synth\+Voice\+::get\+Oscillator2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_synth_voice_a1347e0c249222296cb6ab431efad2d58}\label{class_synth_voice_a1347e0c249222296cb6ab431efad2d58}} 
+\index{SynthVoice@{SynthVoice}!pitchWheelMoved@{pitchWheelMoved}}
+\index{pitchWheelMoved@{pitchWheelMoved}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{pitchWheelMoved()}{pitchWheelMoved()}}
+{\footnotesize\ttfamily void Synth\+Voice\+::pitch\+Wheel\+Moved (\begin{DoxyParamCaption}\item[{int}]{new\+Pitch\+Wheel\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{class_synth_voice_a49e46287dd39f52689765bedb670cdd1}\label{class_synth_voice_a49e46287dd39f52689765bedb670cdd1}} 
+\index{SynthVoice@{SynthVoice}!prepareToPlay@{prepareToPlay}}
+\index{prepareToPlay@{prepareToPlay}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{prepareToPlay()}{prepareToPlay()}}
+{\footnotesize\ttfamily void Synth\+Voice\+::prepare\+To\+Play (\begin{DoxyParamCaption}\item[{double}]{sample\+Rate,  }\item[{int}]{samples\+Per\+Block,  }\item[{int}]{output\+Channels }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_synth_voice_a2cd162555fa015526c1a13578f31ce55}\label{class_synth_voice_a2cd162555fa015526c1a13578f31ce55}} 
+\index{SynthVoice@{SynthVoice}!renderNextBlock@{renderNextBlock}}
+\index{renderNextBlock@{renderNextBlock}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{renderNextBlock()}{renderNextBlock()}}
+{\footnotesize\ttfamily void Synth\+Voice\+::render\+Next\+Block (\begin{DoxyParamCaption}\item[{juce\+::\+Audio\+Buffer$<$ float $>$ \&}]{output\+Buffer,  }\item[{int}]{start\+Sample,  }\item[{int}]{num\+Samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{class_synth_voice_a7fb38009b7d2360c74f5fe1bb5ca8b63}\label{class_synth_voice_a7fb38009b7d2360c74f5fe1bb5ca8b63}} 
+\index{SynthVoice@{SynthVoice}!reset@{reset}}
+\index{reset@{reset}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Synth\+Voice\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_synth_voice_a7fe4dd0d3a4a477cae110e33f3bdd507}\label{class_synth_voice_a7fe4dd0d3a4a477cae110e33f3bdd507}} 
+\index{SynthVoice@{SynthVoice}!startNote@{startNote}}
+\index{startNote@{startNote}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{startNote()}{startNote()}}
+{\footnotesize\ttfamily void Synth\+Voice\+::start\+Note (\begin{DoxyParamCaption}\item[{int}]{midi\+Note\+Number,  }\item[{float}]{velocity,  }\item[{juce\+::\+Synthesiser\+Sound $\ast$}]{sound,  }\item[{int}]{current\+Pitch\+Wheel\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{class_synth_voice_a7376d03590d9cb0b7872987afcf367a3}\label{class_synth_voice_a7376d03590d9cb0b7872987afcf367a3}} 
+\index{SynthVoice@{SynthVoice}!stopNote@{stopNote}}
+\index{stopNote@{stopNote}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{stopNote()}{stopNote()}}
+{\footnotesize\ttfamily void Synth\+Voice\+::stop\+Note (\begin{DoxyParamCaption}\item[{float}]{velocity,  }\item[{bool}]{allow\+Tail\+Off }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{class_synth_voice_ae3f1cf652acd4410f472319bf9b5a7dc}\label{class_synth_voice_ae3f1cf652acd4410f472319bf9b5a7dc}} 
+\index{SynthVoice@{SynthVoice}!updateFilter@{updateFilter}}
+\index{updateFilter@{updateFilter}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{updateFilter()}{updateFilter()}}
+{\footnotesize\ttfamily void Synth\+Voice\+::update\+Filter (\begin{DoxyParamCaption}\item[{const int}]{filter\+Type,  }\item[{const float}]{frequency,  }\item[{const float}]{resonance }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_synth_voice_abc23f71af9a4a4f2457a3f03a922cfd9}\label{class_synth_voice_abc23f71af9a4a4f2457a3f03a922cfd9}} 
+\index{SynthVoice@{SynthVoice}!updateModParams@{updateModParams}}
+\index{updateModParams@{updateModParams}!SynthVoice@{SynthVoice}}
+\doxysubsubsection{\texorpdfstring{updateModParams()}{updateModParams()}}
+{\footnotesize\ttfamily void Synth\+Voice\+::update\+Mod\+Params (\begin{DoxyParamCaption}\item[{const int}]{filter\+Type,  }\item[{const float}]{frequency,  }\item[{const float}]{resonance,  }\item[{const float}]{modulator }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/leonardomannini/\+SYNTH/leo\+Synth/\+Source/\mbox{\hyperlink{_synth_voice_8h}{Synth\+Voice.\+h}}\item 
+/\+Users/leonardomannini/\+SYNTH/leo\+Synth/\+Source/\mbox{\hyperlink{_synth_voice_8cpp}{Synth\+Voice.\+cpp}}\end{DoxyCompactItemize}
